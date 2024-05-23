@@ -6,3 +6,9 @@ class RegionVitivinicola:
         self.descripción = None
         self.nombre = None
 
+    def getNombre(self, ):
+        pass
+
+    def obtenerPais(self, ):
+        pass
+

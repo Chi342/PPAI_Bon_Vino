@@ -9,3 +9,9 @@ class Bodega:
         self.nombre = None
         self.periodoActualización = None
 
+    def getNombre(self, ):
+        pass
+
+    def obtenerRegionYPais(self, ):
+        pass
+

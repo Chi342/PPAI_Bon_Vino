@@ -6,3 +6,6 @@ class Varietal:
         self.descripción = None
         self.porcentajeComposición = None
 
+    def getDescripcion(self, ):
+        pass
+

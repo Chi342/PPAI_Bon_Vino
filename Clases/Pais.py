@@ -5,3 +5,9 @@ class Pais:
     def __init__(self):
         self.nombre = None
 
+    def getNombre(self, ):
+        pass
+
+    def setNombre(self, ):
+        pass
+

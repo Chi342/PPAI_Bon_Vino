@@ -10,3 +10,24 @@ class Vino:
         self.notaDeCataBodega = None
         self.precioARS = None
 
+    def tenesResenasDeTipoEnPeriodo(self, ):
+        pass
+
+    def getNombre(self, ):
+        pass
+
+    def getPrecio(self, ):
+        pass
+
+    def buscarInfoBodega(self, ):
+        pass
+
+    def buscarVarietal(self, ):
+        pass
+
+    def calcularPuntajeDeSommelierEnPeriodo(self, ):
+        pass
+
+    def calcularPuntajePromedio(self, ):
+        pass
+
