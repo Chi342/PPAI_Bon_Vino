@@ -4,7 +4,7 @@ import pyodbc
 # Your SQL Server instance
 sqlServerName = '.'
 #Your database
-databaseName = 'DBM'
+databaseName = 'Bon_vino'
 # Use Windows authentication
 trusted_connection = 'yes'
 # Connection string information
@@ -19,7 +19,7 @@ try:
    connection = pyodbc.connect(connenction_string)
    cursor = connection.cursor()
    # Run the query to the Person.Person table
-   query = 'SELECT * FROM Aeropuerto'
+   query = 'SELECT * FROM Vino'
    cursor.execute(query)
    # print the results of the row
    rows = cursor.fetchall()
@@ -32,4 +32,5 @@ finally:
    if 'connection' in locals() and connection is not None:
        connection.close()
 
-       
+def listar():
+    
