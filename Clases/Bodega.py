@@ -8,10 +8,41 @@ class Bodega:
         self.historia = None
         self.nombre = None
         self.periodoActualización = None
+        self.region = None
 
     def getNombre(self, ):
         pass
 
     def obtenerRegionYPais(self, ):
+        pass
+
+    def getCoordenadasUbicación(self, ):
+        pass
+
+    def setCoordenadasUbicación(self, value):
+        pass
+
+    def getDescripción(self, ):
+        pass
+
+    def setDescripción(self, value):
+        pass
+
+    def getHistoria(self, ):
+        pass
+
+    def setHistoria(self, value):
+        pass
+
+    def getNombre(self, ):
+        pass
+
+    def setNombre(self, value):
+        pass
+
+    def getPeriodoActualización(self, ):
+        pass
+
+    def setPeriodoActualización(self, value):
         pass
 

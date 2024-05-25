@@ -11,3 +11,9 @@ class Pais:
     def setNombre(self, ):
         pass
 
+    def getNombre(self, ):
+        pass
+
+    def setNombre(self, value):
+        pass
+

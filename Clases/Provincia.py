@@ -8,3 +8,9 @@ class Provincia:
     def obtenerPais(self, ):
         pass
 
+    def getNombre(self, ):
+        pass
+
+    def setNombre(self, value):
+        pass
+
