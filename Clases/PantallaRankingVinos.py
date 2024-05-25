@@ -13,7 +13,8 @@ class PantallaRankingVinos:
         self.label.pack()
         self.fechaDesde = tk.Entry(self.root)
         self.fechaDesde.pack()
-        
+
+
         self.fechaHasta = None
         self.tipoReseña = None
         self.tipoVisualizacion = None
@@ -62,3 +63,4 @@ class PantallaRankingVinos:
 root = tk.Tk()
 app = PantallaRankingVinos(root)
 root.mainloop()
+
