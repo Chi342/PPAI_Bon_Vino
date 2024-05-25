@@ -23,13 +23,28 @@ class Vino:
         regionYPais = self.bodega.obtenerRegionYPais()
 
     def buscarVarietal(self, ):
-        pass
+        varietal = self.varietal.getDescripción()
 
     def calcularPuntajeDeSommelierEnPeriodo(self, ):
-        pass
+        puntajes = []
+        for i in range(len(self.reseña)):
+            enPeriodo = self.reseña[i].sosDePeriodo()
+            esDeSommelier = self.reseña[i].sosDeSommelier()
+            if enPeriodo and esDeSommelier:
+                puntajes.append(self.reseña[i].getPuntaje)
+        promPunt = self.calcularPuntajePromedio(puntajes)
+        return promPunt
 
-    def calcularPuntajePromedio(self, ):
-        pass
+    def calcularPuntajePromedio(self, puntajes):
+        sumPuntajes = 0
+        cantPuntajes = len(puntajes)
+        for i in range(cantPuntajes):
+            sumPuntajes += puntajes[i]
+        if cantPuntajes != 0:
+            promPuntajes = sumPuntajes / cantPuntajes
+        else:
+            promPuntajes = 0
+        return promPuntajes
 
     def getAñada(self, ):
         return self.añada
@@ -75,4 +90,4 @@ class Vino:
         self.reseña.append(value)
 
 
-Vino1 = Vino(1993, "14/05/2024", "Balbo", 10, 1500)
+

@@ -5,12 +5,13 @@ class RegionVitivinicola:
     def __init__(self):
         self.descripción = None
         self.nombre = None
+        self.provincia = None
 
     def getNombre(self, ):
         pass
 
     def obtenerPais(self, ):
-        pass
+        return self.provincia.obtenerPais()
 
     def getDescripción(self, ):
         pass

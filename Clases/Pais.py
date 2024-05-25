@@ -6,14 +6,10 @@ class Pais:
         self.nombre = None
 
     def getNombre(self, ):
-        pass
-
-    def setNombre(self, ):
-        pass
-
-    def getNombre(self, ):
-        pass
+        return self.nombre
 
     def setNombre(self, value):
-        pass
+        self.nombre = value
+
+
 

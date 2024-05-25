@@ -14,7 +14,9 @@ class Bodega:
         pass
 
     def obtenerRegionYPais(self, ):
-        pass
+        region = self.region.getNombre()
+        pais = self.region.obtenerPais()
+        return [region, pais]
 
     def getCoordenadasUbicación(self, ):
         pass

@@ -4,9 +4,10 @@
 class Provincia:
     def __init__(self):
         self.nombre = None
+        self.pais = None
 
     def obtenerPais(self, ):
-        pass
+        return self.pais.getNombre()
 
     def getNombre(self, ):
         pass
