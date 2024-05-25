@@ -1,9 +1,19 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
+import tkinter as tk
+
+
 class PantallaRankingVinos:
-    def __init__(self):
-        self.fechaDesde = None
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Generar Ranking Vinos")
+
+        self.label = tk.Label(self.root, text="Ingresa una fecha:")
+        self.label.pack()
+        self.fechaDesde = tk.Entry(self.root)
+        self.fechaDesde.pack()
+        
         self.fechaHasta = None
         self.tipoReseña = None
         self.tipoVisualizacion = None
@@ -48,3 +58,7 @@ class PantallaRankingVinos:
     def confirmarExportacion(self, ):
         pass
 
+
+root = tk.Tk()
+app = PantallaRankingVinos(root)
+root.mainloop()
