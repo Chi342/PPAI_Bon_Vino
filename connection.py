@@ -1,4 +1,5 @@
 import pyodbc
+
 #Connection information
 # Your SQL Server instance
 sqlServerName = '.'
@@ -30,3 +31,5 @@ except pyodbc.Error as ex:
 finally:
    if 'connection' in locals() and connection is not None:
        connection.close()
+
+       
