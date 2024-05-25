@@ -14,6 +14,8 @@ class PantallaRankingVinos:
         self.fechaDesde = tk.Entry(self.root)
         self.fechaDesde.pack()
 
+        self.button = tk.Button(self.root, text="Add", command=self.opcGenerarRankingVinos)
+        self.button.pack()
 
         self.fechaHasta = None
         self.tipoReseña = None

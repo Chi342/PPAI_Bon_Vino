@@ -9,6 +9,7 @@ class Vino:
         self.nombre = None
         self.notaDeCataBodega = None
         self.precioARS = None
+        self.resena = None
 
     def tenesResenasDeTipoEnPeriodo(self, ):
         pass
