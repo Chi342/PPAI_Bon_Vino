@@ -48,3 +48,33 @@ class PantallaRankingVinos:
     def confirmarExportacion(self, ):
         pass
 
+    def getFechaDesde(self, ):
+        pass
+
+    def setFechaDesde(self, value):
+        pass
+
+    def getFechaHasta(self, ):
+        pass
+
+    def setFechaHasta(self, value):
+        pass
+
+    def getTipoReseña(self, ):
+        pass
+
+    def setTipoReseña(self, value):
+        pass
+
+    def getTipoVisualizacion(self, ):
+        pass
+
+    def setTipoVisualizacion(self, value):
+        pass
+
+    def getConfirmacion(self, ):
+        pass
+
+    def setConfirmacion(self, value):
+        pass
+
