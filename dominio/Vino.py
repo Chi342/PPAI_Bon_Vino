@@ -1,3 +1,6 @@
+#!/usr/bin/python
+#-*- coding: utf-8 -*-
+
 from sqlalchemy import Column, Integer, String, DateTime, Numeric
 from sqlalchemy.orm import declarative_base, sessionmaker
 from sqlalchemy import create_engine
@@ -6,7 +9,7 @@ from datetime import datetime
 Base = declarative_base()
 
 class Vino(Base):
-    __tablename__ = 'vino'
+    __tablename__ = 'Vino'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     añada = Column(Integer, nullable=True)
@@ -16,29 +19,29 @@ class Vino(Base):
     notaDeCataBodega = Column(Integer, nullable=True)
     precioARS = Column(Numeric(18, 0), nullable=True)
 
-    def tenes_resenas_de_tipo_en_periodo(self, tipo: str, inicio: datetime, fin: datetime) -> bool:
+    def tenesResenasDeTipoEnPeriodo(self, tipo: str, inicio: datetime, fin: datetime) -> bool:
         # Implementation goes here
         pass
 
-    def get_nombre(self) -> str:
+    def getNombre(self) -> str:
         return self.nombre
 
-    def get_precio(self) -> float:
-        return self.precio_ars
+    def getPrecio(self) -> float:
+        return self.precioARS
 
-    def buscar_info_bodega(self) -> dict:
+    def buscarInfoBodega(self) -> dict:
         # Implementation goes here
         pass
 
-    def buscar_varietal(self) -> str:
+    def buscarVarietal(self) -> str:
         # Implementation goes here
         pass
 
-    def calcular_puntaje_de_sommelier_en_periodo(self, inicio: datetime, fin: datetime) -> float:
+    def calcularPuntajeDeSommelierEnPeriodo(self, inicio: datetime, fin: datetime) -> float:
         # Implementation goes here
         pass
 
-    def calcular_puntaje_promedio(self) -> float:
+    def calcularPuntajePromedio(self) -> float:
         # Implementation goes here
         pass
 

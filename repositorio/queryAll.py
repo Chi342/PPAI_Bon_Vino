@@ -1,20 +1,20 @@
+#!/usr/bin/python
+#-*- coding: utf-8 -*-
+
+# repositorio/queryAll.py
+import sys
+import os
+import connection
+
+# Añadir el directorio base al PYTHONPATH
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from dominio.Vino import Vino
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from mapeo import Vino  # Asegúrate de importar tu clase Vino desde el archivo donde está definida
-
-# Configura la conexión a la base de datos
-# Connection setup using Windows Authentication
-DATABASE_URI = (
-    'mssql+pyodbc:///?odbc_connect='
-    'DRIVER={ODBC Driver 17 for SQL Server};'
-    'SERVER=MAIN;'
-    'DATABASE=Bon_vino;'
-    'Trusted_Connection=yes;'
-)
-engine = create_engine(DATABASE_URI)
 
 # Crea una sesión
-Session = sessionmaker(bind=engine)
+Session = sessionmaker(bind=connection.engine)
 session = Session()
 
 # Obtiene todos los objetos mapeados de la tabla Vino
