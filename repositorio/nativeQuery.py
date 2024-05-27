@@ -16,7 +16,7 @@ connection = engine.connect()
 
 # Define la consulta SQL nativa
 #sql_query = """SELECT id, añada, fechaActualizacion, imagenEtiqueta, nombre, notaDeCataBodega, precioARS    FROM vino"""
-sql_query = text("""SELECT * FROM vino where id>0""")
+sql_query = text("""SELECT * FROM vino where idVino>0""")
 
 # Ejecuta la consulta y obtén los resultados
 result = connection.execute(sql_query)
