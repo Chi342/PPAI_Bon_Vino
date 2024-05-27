@@ -6,7 +6,6 @@ import tkinter as tk
 
 
 class PantallaRankingVinos:
-<<<<<<< HEAD
     def __init__(self, resolucion, nombre, icono, color, gestor):
 
         self.ventana_ranking = None
@@ -17,7 +16,7 @@ class PantallaRankingVinos:
         self.__color = color
 
         self.fechaDesde = None
-=======
+
     def __init__(self, root):
         self.root = root
         self.root.title("Generar Ranking Vinos")
@@ -30,7 +29,6 @@ class PantallaRankingVinos:
         self.button = tk.Button(self.root, text="Add", command=self.opcGenerarRankingVinos)
         self.button.pack()
 
->>>>>>> pantallaGenerarRanking
         self.fechaHasta = None
         self.tipoReseña = None
         self.tipoVisualizacion = None
@@ -170,14 +168,9 @@ class PantallaRankingVinos:
         self.gestor.tomarConfirmacionGenReporte()
 
     def confirmarExportacion(self, ):
-<<<<<<< HEAD
-        pass
-=======
         pass
 
 
 root = tk.Tk()
 app = PantallaRankingVinos(root)
 root.mainloop()
-
->>>>>>> pantallaGenerarRanking
