@@ -30,8 +30,8 @@ vinos = session.query(Vino).all()
 
 # Itera sobre los objetos mapeados y muestra sus atributos
 for vino in vinos:
-    print("ID:", vino.id)
-    print("Añada:", vino.añada)
+    print("ID:", vino.idVino)
+    print("Añada:", vino.aniada)
     print("Fecha de actualización:", vino.fechaActualizacion)
     print("Imagen de etiqueta:", vino.imagenEtiqueta)
     print("Nombre:", vino.nombre)

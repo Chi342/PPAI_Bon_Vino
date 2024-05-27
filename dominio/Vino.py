@@ -11,13 +11,15 @@ Base = declarative_base()
 class Vino(Base):
     __tablename__ = 'Vino'
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
+    #idVino = Column(Integer, primary_key=True, autoincrement=True)
+    idVino = Column(Integer, primary_key=True, autoincrement=False)
     aniada = Column(Integer, nullable=True)
     fechaActualizacion = Column(DateTime, nullable=True)
     imagenEtiqueta = Column(Integer, nullable=True)
     nombre = Column(String(50), nullable=True)
     notaDeCataBodega = Column(Integer, nullable=True)
     precioARS = Column(Numeric(18, 0), nullable=True)
+    bodega = Column(Integer, nullable=False)
 
     def tenesResenasDeTipoEnPeriodo(self, tipo: str, inicio: datetime, fin: datetime) -> bool:
         # Implementation goes here
