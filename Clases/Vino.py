@@ -1,93 +1,70 @@
-#!/usr/bin/python
-#-*- coding: utf-8 -*-
+import datetime
 
 class Vino:
-    def __init__(self, añada, fechaActualizacion, nombre, nota, precio, bodega, varietal):
-        self.añada = añada
-        self.fechaActualización = fechaActualizacion
-        self.imagenEtiqueta = None
-        self.nombre = nombre
-        self.notaDeCataBodega = nota
-        self.precioARS = precio
-        self.bodega = bodega
-        self.reseña = []
-        self.varietal = varietal
+    def __init__(self, añada, imagenEtiqueta, nombre, notaDeCataBodega, precioARS):
+        self._añada = añada
+        self._fechaActualizacion = datetime.datetime.now().strftime('%d/%m/%Y')
+        self._imagenEtiqueta = imagenEtiqueta
+        self._nombre = nombre
+        self._notaDeCataBodega = notaDeCataBodega
+        self._precioARS = precioARS
 
-    def tenesResenasDeTipoEnPeriodo(self, ):
-        for i in range(len(self.reseña)):
-            enPeriodo = self.reseña[i].sosDePeriodo()
-            esDeSommelier = self.reseña[i].sosDeSommelier()
+    @property
+    def añada(self):
+        return self._añada
+    
+    @añada.setter
+    def nombre(self, añada):
+        self._añada = añada
 
-    def buscarInfoBodega(self, ):
-        nombreBodega = self.bodega.getNombre()
-        regionYPais = self.bodega.obtenerRegionYPais()
+    @property
+    def fechaActualizacion(self):
+        return self._fechaActualizacion
+    
+    @fechaActualizacion.setter
+    def fechaActualizacion(self, fecha_Actualizacion):
+        self._fechaActualizacion = fecha_Actualizacion
 
-    def buscarVarietal(self, ):
-        varietal = self.varietal.getDescripción()
+    @property
+    def imagenEtiqueta(self):
+        return self._imagenEtiqueta
+    
+    @imagenEtiqueta.setter
+    def imagenEtiqueta(self, imagenEtiqueta):
+        self._imagenEtiqueta = imagenEtiqueta
+    
+    @property
+    def nombre(self):
+        return self._nombre
+    
+    @nombre.setter
+    def nombre(self, nombre):
+        self._nombre = nombre
+    
+    @property
+    def notaDeCataBodega(self):
+        return self._notaDeCataBodega
+    
+    @notaDeCataBodega.setter
+    def notaDeCataBodega(self, notaDeCataBodega):
+        self._notaDeCataBodega = notaDeCataBodega
 
-    def calcularPuntajeDeSommelierEnPeriodo(self, ):
-        puntajes = []
-        for i in range(len(self.reseña)):
-            enPeriodo = self.reseña[i].sosDePeriodo()
-            esDeSommelier = self.reseña[i].sosDeSommelier()
-            if enPeriodo and esDeSommelier:
-                puntajes.append(self.reseña[i].getPuntaje)
-        promPunt = self.calcularPuntajePromedio(puntajes)
-        return promPunt
+    @property
+    def precioARS(self):
+        return self._precioARS
+    
+    @añada.setter
+    def precioARS(self, precioARS):
+        self._precioARS = precioARS
+    
+    def calcularRanking():
+        pass
 
-    def calcularPuntajePromedio(self, puntajes):
-        sumPuntajes = 0
-        cantPuntajes = len(puntajes)
-        for i in range(cantPuntajes):
-            sumPuntajes += puntajes[i]
-        if cantPuntajes != 0:
-            promPuntajes = sumPuntajes / cantPuntajes
-        else:
-            promPuntajes = 0
-        return promPuntajes
+    def compararEtiqueta():
+        pass
 
-    def getAñada(self, ):
-        return self.añada
+    def esDeBodega():
+        pass
 
-    def setAñada(self, value):
-        self.añada = value
-
-    def getFechaActualización(self, ):
-        return self.fechaActualización
-
-    def setFechaActualización(self, value):
-        self.fechaActualización = value
-
-    def getImagenEtiqueta(self, ):
-        return self.imagenEtiqueta
-
-
-    def setImagenEtiqueta(self, value):
-        self.imagenEtiqueta = value
-
-    def getNombre(self, ):
-        return self.nombre
-
-    def setNombre(self, value):
-        self.nombre = value
-
-    def getNotaDeCataBodega(self, ):
-        return self.notaDeCataBodega
-
-    def setNotaDeCataBodega(self, value):
-        self.notaDeCataBodega = value
-
-    def getPrecioARS(self, ):
-        return self.precioARS
-
-    def setPrecioARS(self, value):
-        self.precioARS = value
-
-    def conocerReseña(self, ):
-        return self.precioARS
-
-    def agregarReseña(self, value):
-        self.reseña.append(value)
-
-
-
+    def esDeRegionVitivinicola():
+        pass

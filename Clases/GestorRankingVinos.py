@@ -1,32 +1,54 @@
-#!/usr/bin/python
-#-*- coding: utf-8 -*-
+from PantallaRankingVinos import *
+from tkinter import *
+
 
 class GestorRankingVinos:
-    def __init__(self):
+    def __init__(self, lista_vinos):
+
+        self.pantalla = None
         self.fechaDesde = None
         self.fechaHasta = None
         self.tipoReseña = None
         self.tipoVisualizacion = None
-        self.vinosOrdenados = None
+        self.vinosOrdenados = lista_vinos
         self.vinosQueCumplenConFiltros = None
 
-    def opcGenerarRankingVinos(self, ):
-        pass
+    def opcGenerarRankingVinos(self):
+        self.pantalla.solicitarSelFechaDesdeHasta()
 
-    def tomarSelFechaDesdeYHasta(self, ):
-        pass
 
-    def tomarSelTipoReseña(self, ):
-        pass
+    def tomarSelFechaDesdeYHasta(self):
+        self.fechaDesde = self.pantalla.fechaDesde
+        self.fechaHasta = self.pantalla.fechaHasta
+        print('Las fechas:', self.fechaDesde, self.fechaHasta)
+
+        self.pantalla.solicitarSelTipoReseña()
+
+        
+    def validarPeriodo(self, fecha_desde, fecha_hasta, validado):
+        if fecha_desde <= fecha_hasta:
+            validado = True
+        else:
+            validado = False
+        return validado
+
+    def tomarSelTipoReseña(self):
+        self.tipoReseña = self.pantalla.tipoReseña
+        print(self.tipoReseña)
+        
+        self.pantalla.solicitarSelTipoVisualizacion()
+
 
     def tomarSelTipoVisualizacion(self, ):
-        pass
+        self.tipoVisualizacion = self.pantalla.tipoVisualizacion
+        print(self.tipoVisualizacion)
+        self.pantalla.solicitarConfirmacionGenReporte()
 
-    def tomarConfirmacionGenReporte(self, ):
-        pass
+    def tomarConfirmacionGenReporte(self):
+        self.buscarVinosConResenasEnPeriodo()
 
     def buscarVinosConResenasEnPeriodo(self, ):
-        pass
+        self.vinosOrdenados
 
     def calcularPuntajeDeSommelierEnPeriodo(self, ):
         pass
@@ -36,40 +58,3 @@ class GestorRankingVinos:
 
     def finCU(self, ):
         pass
-
-    def getFechaDesde(self, ):
-        pass
-
-    def setFechaDesde(self, value):
-        pass
-
-    def getFechaHasta(self, ):
-        pass
-
-    def setFechaHasta(self, value):
-        pass
-
-    def getTipoReseña(self, ):
-        pass
-
-    def setTipoReseña(self, value):
-        pass
-
-    def getTipoVisualizacion(self, ):
-        pass
-
-    def setTipoVisualizacion(self, value):
-        pass
-
-    def getVinosOrdenados(self, ):
-        pass
-
-    def setVinosOrdenados(self, value):
-        pass
-
-    def getVinosQueCumplenConFiltros(self, ):
-        pass
-
-    def setVinosQueCumplenConFiltros(self, value):
-        pass
-
