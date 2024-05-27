@@ -5,6 +5,8 @@ from GestorRankingVinos import *
 from Vino import *
 import random
 import os
+import datetime
+
 
 def test():
     def generar_ranking_vinos():
@@ -36,16 +38,25 @@ def test():
         ventana.config(menu=menu_principal)
 
 
+    def crear_lista_bodegas():
+        bodegas = []
+        for i in range(10):
+            pass
+
     def cargar_vinos(lista_vinos):
         etiquetas = os.listdir('extras/etiquetas')
         nombres = ['Cabernet Sauvignon', 'Airén', 'Chardonnay', 'Syrah', 'Garnacha', 'Sauvignon Blanc', 'Trebbiano Toscano', 'Tempranillo']
         for i in range(30):
-            añada = random.randint(1990,2023)
+            añada = random.randint(1990, 2023)
+            año = random.randint(2000, 2023)
+            mes = random.randint(1, 12)
+            dia = random.randint(1, 31)
+            fechaActualizacion = datetime.datetime(año, mes, dia)
             imagenEtiqueta = random.choice(etiquetas)
             nombre = random.choice(nombres)
             notaDeCataBodega = random.randint(1,5)
             precioARS = random.randint(2000, 35000)
-            nuevo_vino = Vino(añada, imagenEtiqueta, nombre, notaDeCataBodega, precioARS)
+            nuevo_vino = Vino(añada, fechaActualizacion, imagenEtiqueta, nombre, notaDeCataBodega, precioARS, bodega, varietal)
             lista_vinos.append(nuevo_vino)
             return lista_vinos
 
@@ -64,6 +75,7 @@ def test():
 
     crear_menu()
     ventana.mainloop()
+
 
 if __name__ == '__main__':
     test()

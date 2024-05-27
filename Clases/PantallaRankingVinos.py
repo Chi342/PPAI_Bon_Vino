@@ -2,7 +2,11 @@ import tkinter as tk
 from tkcalendar import DateEntry
 from GestorRankingVinos import *
 
+import tkinter as tk
+
+
 class PantallaRankingVinos:
+<<<<<<< HEAD
     def __init__(self, resolucion, nombre, icono, color, gestor):
 
         self.ventana_ranking = None
@@ -13,6 +17,20 @@ class PantallaRankingVinos:
         self.__color = color
 
         self.fechaDesde = None
+=======
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Generar Ranking Vinos")
+
+        self.label = tk.Label(self.root, text="Ingresa una fecha:")
+        self.label.pack()
+        self.fechaDesde = tk.Entry(self.root)
+        self.fechaDesde.pack()
+
+        self.button = tk.Button(self.root, text="Add", command=self.opcGenerarRankingVinos)
+        self.button.pack()
+
+>>>>>>> pantallaGenerarRanking
         self.fechaHasta = None
         self.tipoReseña = None
         self.tipoVisualizacion = None
@@ -152,4 +170,14 @@ class PantallaRankingVinos:
         self.gestor.tomarConfirmacionGenReporte()
 
     def confirmarExportacion(self, ):
+<<<<<<< HEAD
         pass
+=======
+        pass
+
+
+root = tk.Tk()
+app = PantallaRankingVinos(root)
+root.mainloop()
+
+>>>>>>> pantallaGenerarRanking
