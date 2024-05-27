@@ -12,7 +12,7 @@ class Vino(Base):
     __tablename__ = 'Vino'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    añada = Column(Integer, nullable=True)
+    aniada = Column(Integer, nullable=True)
     fechaActualizacion = Column(DateTime, nullable=True)
     imagenEtiqueta = Column(Integer, nullable=True)
     nombre = Column(String(50), nullable=True)

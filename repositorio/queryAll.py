@@ -1,6 +1,14 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
+"""
+se deben ejecutar los siguientes comandos desde una consola (cmd o powershell): 
+pip install flask
+pip install sqlalchemy
+pip install flask-sqlalchemy
+pip install mssql
+"""
+
 # repositorio/queryAll.py
 import sys
 import os
