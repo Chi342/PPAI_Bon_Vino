@@ -1,8 +1,8 @@
-import PantallaRankingVinos
+from PantallaRankingVinos import *
 import tkinter as tk
 from tkinter import PhotoImage, Menu
-import GestorRankingVinos
-import Vino
+from GestorRankingVinos import *
+from Vino import *
 import random
 import os
 import datetime
@@ -42,10 +42,20 @@ def test():
         bodegas = []
         for i in range(10):
             pass
+        return bodegas
+
+
+    def crear_lista_varietal():
+        varietal = []
+        for i in range(10):
+            pass
+        return varietal
 
     def cargar_vinos(lista_vinos):
         etiquetas = os.listdir('extras/etiquetas')
         nombres = ['Cabernet Sauvignon', 'Airén', 'Chardonnay', 'Syrah', 'Garnacha', 'Sauvignon Blanc', 'Trebbiano Toscano', 'Tempranillo']
+        bodega = crear_lista_bodegas()
+        varietal = crear_lista_varietal()
         for i in range(30):
             añada = random.randint(1990, 2023)
             año = random.randint(2000, 2023)
@@ -54,8 +64,9 @@ def test():
             fechaActualizacion = datetime.datetime(año, mes, dia)
             imagenEtiqueta = random.choice(etiquetas)
             nombre = random.choice(nombres)
-            notaDeCataBodega = random.randint(1,5)
+            notaDeCataBodega = random.randint(1, 5)
             precioARS = random.randint(2000, 35000)
+
             nuevo_vino = Vino(añada, fechaActualizacion, imagenEtiqueta, nombre, notaDeCataBodega, precioARS, bodega, varietal)
             lista_vinos.append(nuevo_vino)
             return lista_vinos

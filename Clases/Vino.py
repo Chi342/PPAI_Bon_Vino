@@ -2,10 +2,10 @@
 #-*- coding: utf-8 -*-
 
 class Vino:
-    def __init__(self, añada, fechaActualizacion, nombre, nota, precio, bodega, varietal):
+    def __init__(self, añada, fechaActualizacion, imagen, nombre, nota, precio, bodega, varietal):
         self.añada = añada
         self.fechaActualización = fechaActualizacion
-        self.imagenEtiqueta = None
+        self.imagenEtiqueta = imagen
         self.nombre = nombre
         self.notaDeCataBodega = nota
         self.precioARS = precio
