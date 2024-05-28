@@ -17,7 +17,7 @@ import connection
 # Añadir el directorio base al PYTHONPATH
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from dominio.Vino import Vino
+from dominio.TodasLasClases import Vino
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 

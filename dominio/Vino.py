@@ -10,8 +10,6 @@ Base = declarative_base()
 
 class Vino(Base):
     __tablename__ = 'Vino'
-
-    #idVino = Column(Integer, primary_key=True, autoincrement=True)
     idVino = Column(Integer, primary_key=True, autoincrement=False)
     aniada = Column(Integer, nullable=True)
     fechaActualizacion = Column(DateTime, nullable=True)
