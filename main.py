@@ -2,13 +2,13 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import urllib
 # repositorio/queryAll.py
-import sys
+"""
 import os
 import connection
 
 # Añadir el directorio base al PYTHONPATH
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
+"""
 from dominio.TodasLasClases import Bodega, Pais, Provincia, RegionVitivinicola, Resenia, Varietal, Vino
 
 # Define the connection string

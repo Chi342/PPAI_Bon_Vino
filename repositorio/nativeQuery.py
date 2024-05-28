@@ -5,7 +5,7 @@ from sqlalchemy import create_engine, text
 DATABASE_URI = (
     'mssql+pyodbc:///?odbc_connect='
     'DRIVER={ODBC Driver 17 for SQL Server};'
-    'SERVER=MAIN;'
+    'SERVER=.;'
     'DATABASE=Bon_vino;'
     'Trusted_Connection=yes;'
 )
