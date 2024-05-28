@@ -1,11 +1,3 @@
-"""
-se deben ejecutar los siguientes comandos desde una consola (cmd o powershell): 
-pip install flask
-pip install sqlalchemy
-pip install flask-sqlalchemy
-pip install mssql
-"""
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import urllib
