@@ -84,39 +84,3 @@ class Vino(Base):
     varietales = relationship("Varietal", back_populates="vino")
 
 
-# Define the connection string
-params = urllib.parse.quote_plus(
-    'DRIVER={ODBC Driver 17 for SQL Server};'
-    'SERVER=MAIN;'
-    'DATABASE=Bon_vino;'
-    'Trusted_Connection=yes;'
-)
-
-# Create the SQLAlchemy engine
-engine = create_engine(f'mssql+pyodbc:///?odbc_connect={params}')
-Session = sessionmaker(bind=engine)
-session = Session()
-
-# Create tables
-try:
-    Base.metadata.create_all(engine)
-    print("Tables created successfully.")
-except Exception as e:
-    print(f"Error creating tables: {e}")
-
-# Example query and print operation
-try:
-    vinos = session.query(Vino).all()
-    for vino in vinos:
-        print("ID:", vino.idVino)
-        print("Añada:", vino.aniada)
-        print("Fecha de actualización:", vino.fechaActualizacion)
-        print("Imagen de etiqueta:", vino.imagenEtiqueta)
-        print("Nombre:", vino.nombre)
-        print("Nota de cata de bodega:", vino.notaDeCataBodega)
-        print("Precio en ARS:", vino.precioARS)
-        print()
-except Exception as e:
-    print(f"Error querying Vino table: {e}")
-finally:
-    session.close()

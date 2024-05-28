@@ -1,3 +1,11 @@
+"""
+se deben ejecutar los siguientes comandos desde una consola (cmd o powershell): 
+pip install flask
+pip install sqlalchemy
+pip install flask-sqlalchemy
+pip install mssql
+"""
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import urllib
@@ -59,7 +67,14 @@ try:
     print("\nVinos:")
     vinos = session.query(Vino).all()
     for vino in vinos:
-        print(vino.__dict__)
+        print("ID:", vino.idVino)
+        print("Añada:", vino.aniada)
+        print("Fecha de actualización:", vino.fechaActualizacion)
+        print("Imagen de etiqueta:", vino.imagenEtiqueta)
+        print("Nombre:", vino.nombre)
+        print("Nota de cata de bodega:", vino.notaDeCataBodega)
+        print("Precio en ARS:", vino.precioARS)
+        print()
 
 except Exception as e:
     print(f"Error querying database: {e}")
