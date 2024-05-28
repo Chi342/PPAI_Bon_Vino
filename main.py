@@ -7,7 +7,7 @@ from tkcalendar import DateEntry
 ventana = tk.Tk()
 ventana.geometry('600x400')
 ventana.title('BonVino')
-ventana.iconbitmap('extras/icono.ico')
+ventana.iconbitmap('Clases/extras/icono.ico')
 
 
 def rankear_vinos():

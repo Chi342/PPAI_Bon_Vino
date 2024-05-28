@@ -12,7 +12,7 @@ def test():
     def generar_ranking_vinos():
 
         gestor = GestorRankingVinos(lista_vinos)
-        pantalla_ranking = PantallaRankingVinos('360x720', 'BonVino - Generar ranking de vinos', 'extras/icono.ico', '#5C1D05', gestor)
+        pantalla_ranking = PantallaRankingVinos('360x720', 'BonVino - Generar ranking de vinos', 'Clases/extras/icono.ico', '#5C1D05', gestor)
         gestor.pantalla = pantalla_ranking
         pantalla_ranking.opcGenerarRankingVinos()
 
@@ -60,7 +60,7 @@ def test():
             añada = random.randint(1990, 2023)
             año = random.randint(2000, 2023)
             mes = random.randint(1, 12)
-            dia = random.randint(1, 31)
+            dia = random.randint(1, 28)
             fechaActualizacion = datetime.datetime(año, mes, dia)
             imagenEtiqueta = random.choice(etiquetas)
             nombre = random.choice(nombres)
@@ -69,7 +69,7 @@ def test():
 
             nuevo_vino = Vino(añada, fechaActualizacion, imagenEtiqueta, nombre, notaDeCataBodega, precioARS, bodega, varietal)
             lista_vinos.append(nuevo_vino)
-            return lista_vinos
+        return lista_vinos
 
 
     lista_vinos = []
