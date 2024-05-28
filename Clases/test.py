@@ -52,7 +52,7 @@ def test():
         return varietal
 
     def cargar_vinos(lista_vinos):
-        etiquetas = os.listdir('extras/etiquetas')
+        etiquetas = os.listdir('Clases/extras/etiquetas')
         nombres = ['Cabernet Sauvignon', 'Airén', 'Chardonnay', 'Syrah', 'Garnacha', 'Sauvignon Blanc', 'Trebbiano Toscano', 'Tempranillo']
         bodega = crear_lista_bodegas()
         varietal = crear_lista_varietal()
@@ -78,8 +78,8 @@ def test():
     ventana = tk.Tk()
     ventana.geometry('1280x720')
     ventana.title('BonVino')
-    ventana.iconbitmap('extras/icono.ico')
-    imagen_fondo = PhotoImage(file='extras/BonVINO.png')
+    ventana.iconbitmap('Clases/extras/icono.ico')
+    imagen_fondo = PhotoImage(file='Clases/extras/BonVINO.png')
     etiqueta_fondo = tk.Label(ventana, image=imagen_fondo)
     etiqueta_fondo.place(relwidth=1, relheight=1)
 
