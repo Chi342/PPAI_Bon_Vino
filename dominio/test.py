@@ -35,8 +35,8 @@ def test():
 
 
     def cargar_vinos(lista_vinos):
-        vinos = Vino.consultar_vinos()  # Assuming there is a static method 'consultar_vinos' in the 'Vino' class
-        lista_vinos.extend(vinos)
+        vinos = DTOVino.consultar_vinos(lista_vinos)  # Assuming there is a static method 'consultar_vinos' in the 'Vino' class
+    #    lista_vinos.extend(vinos)
         return lista_vinos
 
 
@@ -44,11 +44,21 @@ def test():
     lista_de_vinos = []
     
     # Llamar a la función cargar_vinos con la lista de vinos como argumento
-    #lista_de_vinos = cargar_vinos(lista_de_vinos)
+    lista_de_vinos = cargar_vinos(lista_de_vinos)
     
     # Ahora, lista_de_vinos debería contener los vinos cargados por la función
-    #for vino in lista_de_vinos:
-    #    print(vino)
+    print("\nVinos:")
+    for vino in lista_de_vinos:
+    #    print("ID:", vino.idVino)
+        print("Añada:", vino.añada)
+        print("Fecha de actualización:", vino.fechaActualización)
+        print("Imagen de etiqueta:", vino.imagenEtiqueta)
+        print("Nombre:", vino.nombre)
+        print("Nota de cata de bodega:", vino.notaDeCataBodega)
+        print("Precio en ARS:", vino.precioARS)
+#        print("Bodega:", vino.bodega)
+        print()
+    print("Cantidad de vinos cargados:", len(lista_de_vinos))
         
     ventana = tk.Tk()
     ventana.geometry('1280x720')
@@ -58,10 +68,8 @@ def test():
     etiqueta_fondo = tk.Label(ventana, image=imagen_fondo)
     etiqueta_fondo.place(relwidth=1, relheight=1)
 
-
     crear_menu()
     ventana.mainloop()
-
 
 if __name__ == '__main__':
     test()

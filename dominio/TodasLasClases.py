@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
+import sys
+sys.path.append('C:/Users/Roberto/source/repos/robertoutn/PPAI_BON_VINO/')
 import datetime
 import os
 import random
@@ -8,10 +9,12 @@ from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, D
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import relationship
+from Clases.Vino import Vino
+from database import Session
 
 Base = declarative_base()
-
-class Bodega(Base):
+"""
+class DTOBodega(Base):
     __tablename__ = 'Bodega'
     id = Column(Integer, primary_key=True, nullable=False)
     coordenadasUbicacion = Column(String(20), nullable=True)
@@ -24,14 +27,14 @@ class Bodega(Base):
     regiones = relationship("RegionVitivinicola", back_populates="bodegas")
     vinos = relationship("Vino", back_populates="bodegas")
 
-class Pais(Base):
+class DTOPais(Base):
     __tablename__ = 'Pais'
     id = Column(Integer, primary_key=True, nullable=False)
     nombre = Column(String(50), nullable=False)
 
     provincias = relationship("Provincia", back_populates="paises")
 
-class Provincia(Base):
+class DTOProvincia(Base):
     __tablename__ = 'Provincia'
     id = Column(Integer, primary_key=True, nullable=False)
     nombre = Column(String(50), nullable=False)
@@ -40,7 +43,7 @@ class Provincia(Base):
     paises = relationship("Pais", back_populates="provincias")
     regiones = relationship("RegionVitivinicola", back_populates="provincias")
 
-class RegionVitivinicola(Base):
+class DTORegionVitivinicola(Base):
     __tablename__ = 'RegionVitivinicola'
     id = Column(Integer, primary_key=True, nullable=False)
     nombre = Column(String(50), nullable=False)
@@ -50,7 +53,7 @@ class RegionVitivinicola(Base):
     provincias = relationship("Provincia", back_populates="regiones")
     bodegas = relationship("Bodega", back_populates="regiones")
 
-class Resenia(Base):
+class DTOResenia(Base):
     __tablename__ = 'Resenia'
     id = Column(Integer, Identity(start=1, increment=1), primary_key=True, nullable=False)
     comentario = Column(Text, nullable=True)
@@ -61,7 +64,7 @@ class Resenia(Base):
 
     vino = relationship("Vino", back_populates="resenias")
 
-class Varietal(Base):
+class DTOVarietal(Base):
     __tablename__ = 'Varietal'
     id = Column(Integer, Identity(start=1, increment=1), primary_key=True, nullable=False)
     descripcion = Column(Text, nullable=True)
@@ -69,9 +72,9 @@ class Varietal(Base):
     idVino = Column(Integer, ForeignKey('Vino.idVino'), nullable=False)
 
     vino = relationship("Vino", back_populates="varietales")
+"""
 
-
-class Vino(Base):
+class DTOVino(Base):
     __tablename__ = 'Vino'
     idVino = Column(Integer, primary_key=True, nullable=False)
     aniada = Column(Integer, nullable=True)
@@ -82,9 +85,9 @@ class Vino(Base):
     precioARS = Column(DECIMAL(10, 2), nullable=True)
     bodega = Column(Integer, ForeignKey('Bodega.id'), nullable=False)  # Update column name here
 
-    bodegas = relationship("Bodega", back_populates="vinos")
-    resenias = relationship("Resenia", back_populates="vino")
-    varietales = relationship("Varietal", back_populates="vino")
+#    bodegas = relationship("Bodega", back_populates="vinos")
+#    resenias = relationship("Resenia", back_populates="vino")
+#    varietales = relationship("Varietal", back_populates="vino")
     
     #@staticmethod
     #def consultar_vinos():
@@ -99,29 +102,34 @@ class Vino(Base):
         return bodegas
 
     def crear_lista_varietal():
-        varietal = []
+        varietales = []
         for i in range(10):
             pass
-        return varietal
+        return varietales
 
 
- #   @staticmethod
+    @staticmethod
     def consultar_vinos(lista_vinos):
+        session = Session()
+        vinos = session.query(DTOVino).all()
+        session.close()
+        
         etiquetas = os.listdir('dominio/extras/etiquetas')
         nombres = ['Cabernet Sauvignon', 'Airén', 'Chardonnay', 'Syrah', 'Garnacha', 'Sauvignon Blanc', 'Trebbiano Toscano', 'Tempranillo']
         bodega = bodegas = []#crear_lista_bodegas()
-        varietal = varietal = []#crear_lista_varietal()
-        for i in range(30):
-            añada = random.randint(1990, 2023)
-            año = random.randint(2000, 2023)
+        varietal = varietales = []#crear_lista_varietales()
+        for i in range(1):
+            idVino = i + 100
+            añada = vinos[i].aniada
+            año = random.randint(2000, 2002)
             mes = random.randint(1, 12)
             dia = random.randint(1, 28)
             fechaActualizacion = datetime.datetime(año, mes, dia)
             imagenEtiqueta = random.choice(etiquetas)
-            nombre = random.choice(nombres)
+            nombre = vinos[i].nombre
             notaDeCataBodega = random.randint(1, 5)
-            precioARS = random.randint(2000, 35000)
+            precioARS = random.randint(1000, 3500)
 
-            nuevo_vino = Vino(añada, fechaActualizacion, imagenEtiqueta, nombre, notaDeCataBodega, precioARS, bodega, varietal)
+            nuevo_vino = Vino(añada, fechaActualizacion,imagenEtiqueta, nombre, notaDeCataBodega, precioARS, bodega, varietal)
             lista_vinos.append(nuevo_vino)
         return lista_vinos

@@ -6,7 +6,8 @@ from tkcalendar import DateEntry
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import urllib
-from TodasLasClases import Bodega, Pais, Provincia, RegionVitivinicola, Resenia, Varietal, Vino, VinoVarietal
+
+from dominio.TodasLasClases import DTOVino
 
 # Define the connection string
 params = urllib.parse.quote_plus(
@@ -23,6 +24,7 @@ session = Session()
 
 # Display objects for each class
 try:
+    """Prints all the objects in the database.
     print("Bodegas:")
     bodegas = session.query(Bodega).all()
     for bodega in bodegas:
@@ -53,8 +55,9 @@ try:
     for varietal in varietales:
         print(varietal.__dict__)
 
+"""
     print("\nVinos:")
-    vinos = session.query(Vino).all()
+    vinos = session.query(DTOVino).all()
     for vino in vinos:
         print("ID:", vino.idVino)
         print("Añada:", vino.aniada)
@@ -63,6 +66,7 @@ try:
         print("Nombre:", vino.nombre)
         print("Nota de cata de bodega:", vino.notaDeCataBodega)
         print("Precio en ARS:", vino.precioARS)
+#        print("Bodega:", vino.bodega)
         print()
 
 except Exception as e:
