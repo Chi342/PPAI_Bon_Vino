@@ -1,11 +1,11 @@
-from PantallaRankingVinos import *
+import datetime
+import os
+import random
 import tkinter as tk
 from tkinter import PhotoImage, Menu
 from GestorRankingVinos import *
+from PantallaRankingVinos import *
 from Vino import *
-import random
-import os
-import datetime
 
 
 def test():
@@ -52,7 +52,7 @@ def test():
         return varietal
 
     def cargar_vinos(lista_vinos):
-        etiquetas = os.listdir('Clases/extras/etiquetas')
+        etiquetas = os.listdir('extras/etiquetas')
         nombres = ['Cabernet Sauvignon', 'Airén', 'Chardonnay', 'Syrah', 'Garnacha', 'Sauvignon Blanc', 'Trebbiano Toscano', 'Tempranillo']
         bodega = crear_lista_bodegas()
         varietal = crear_lista_varietal()
@@ -78,8 +78,8 @@ def test():
     ventana = tk.Tk()
     ventana.geometry('1280x720')
     ventana.title('BonVino')
-    ventana.iconbitmap('Clases/extras/icono.ico')
-    imagen_fondo = PhotoImage(file='Clases/extras/BonVINO.png')
+    ventana.iconbitmap('extras/icono.ico')
+    imagen_fondo = PhotoImage(file='extras/BonVINO.png')
     etiqueta_fondo = tk.Label(ventana, image=imagen_fondo)
     etiqueta_fondo.place(relwidth=1, relheight=1)
 

@@ -1,6 +1,7 @@
 import tkinter as tk
-from tkcalendar import DateEntry
 from GestorRankingVinos import *
+from tkcalendar import DateEntry
+
 
 class PantallaRankingVinos:
     def __init__(self, resolucion, nombre, icono, color, gestor):
