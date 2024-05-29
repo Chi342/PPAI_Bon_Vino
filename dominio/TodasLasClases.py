@@ -115,20 +115,16 @@ class DTOVino(Base):
         session.close()
         
         etiquetas = os.listdir('dominio/extras/etiquetas')
-        nombres = ['Cabernet Sauvignon', 'Airén', 'Chardonnay', 'Syrah', 'Garnacha', 'Sauvignon Blanc', 'Trebbiano Toscano', 'Tempranillo']
-        bodega = bodegas = []#crear_lista_bodegas()
-        varietal = varietales = []#crear_lista_varietales()
-        for i in range(1):
+        bodega = []#crear_lista_bodegas()
+        varietal = []#crear_lista_varietales()
+        for i in range(len(vinos)):
             idVino = i + 100
             añada = vinos[i].aniada
-            año = random.randint(2000, 2002)
-            mes = random.randint(1, 12)
-            dia = random.randint(1, 28)
-            fechaActualizacion = datetime.datetime(año, mes, dia)
+            fechaActualizacion = vinos[i].fechaActualizacion
             imagenEtiqueta = random.choice(etiquetas)
             nombre = vinos[i].nombre
-            notaDeCataBodega = random.randint(1, 5)
-            precioARS = random.randint(1000, 3500)
+            notaDeCataBodega=vinos[i].notaDeCataBodega
+            precioARS = vinos[i].precioARS
 
             nuevo_vino = Vino(añada, fechaActualizacion,imagenEtiqueta, nombre, notaDeCataBodega, precioARS, bodega, varietal)
             lista_vinos.append(nuevo_vino)

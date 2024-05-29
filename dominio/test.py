@@ -56,9 +56,6 @@ def test():
         print("Nombre:", vino.nombre)
         print("Nota de cata de bodega:", vino.notaDeCataBodega)
         print("Precio en ARS:", vino.precioARS)
-#        print("Bodega:", vino.bodega)
-        print()
-    print("Cantidad de vinos cargados:", len(lista_de_vinos))
         
     ventana = tk.Tk()
     ventana.geometry('1280x720')
