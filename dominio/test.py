@@ -3,12 +3,11 @@ import tkinter as tk
 from tkinter import PhotoImage, Menu
 from GestorRankingVinos import *
 from TodasLasClases import *
-from TodasLasClases import Vino
 
 def test():
     def generar_ranking_vinos():
 
-        gestor = GestorRankingVinos(lista_vinos)
+        gestor = GestorRankingVinos(lista_de_vinos)
         pantalla_ranking = PantallaRankingVinos('360x720', 'BonVino - Generar ranking de vinos', 'Clases/extras/icono.ico', '#5C1D05', gestor)
         gestor.pantalla = pantalla_ranking
         pantalla_ranking.opcGenerarRankingVinos()
@@ -35,18 +34,6 @@ def test():
         ventana.config(menu=menu_principal)
 
 
-    def crear_lista_bodegas():
-        bodegas = []
-        for i in range(10):
-            pass
-        return bodegas
-
-    def crear_lista_varietal():
-        varietal = []
-        for i in range(10):
-            pass
-        return varietal
-
     def cargar_vinos(lista_vinos):
         vinos = Vino.consultar_vinos()  # Assuming there is a static method 'consultar_vinos' in the 'Vino' class
         lista_vinos.extend(vinos)
@@ -57,17 +44,17 @@ def test():
     lista_de_vinos = []
     
     # Llamar a la función cargar_vinos con la lista de vinos como argumento
-    lista_de_vinos = cargar_vinos(lista_de_vinos)
+    #lista_de_vinos = cargar_vinos(lista_de_vinos)
     
     # Ahora, lista_de_vinos debería contener los vinos cargados por la función
-    for vino in lista_de_vinos:
-        print(vino)
+    #for vino in lista_de_vinos:
+    #    print(vino)
         
     ventana = tk.Tk()
     ventana.geometry('1280x720')
     ventana.title('BonVino')
-    ventana.iconbitmap('Clases/extras/icono.ico')
-    imagen_fondo = PhotoImage(file='Clases/extras/BonVINO.png')
+    ventana.iconbitmap('dominio/extras/icono.ico')
+    imagen_fondo = PhotoImage(file='dominio/extras/BonVINO.png')
     etiqueta_fondo = tk.Label(ventana, image=imagen_fondo)
     etiqueta_fondo.place(relwidth=1, relheight=1)
 

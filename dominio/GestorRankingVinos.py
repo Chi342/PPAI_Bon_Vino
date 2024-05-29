@@ -16,7 +16,6 @@ class GestorRankingVinos:
     def opcGenerarRankingVinos(self):
         self.pantalla.solicitarSelFechaDesdeHasta()
 
-
     def tomarSelFechaDesdeYHasta(self):
         self.fechaDesde = self.pantalla.fechaDesde
         self.fechaHasta = self.pantalla.fechaHasta

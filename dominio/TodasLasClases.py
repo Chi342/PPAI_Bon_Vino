@@ -1,11 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import datetime
+import os
+import random
 from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, DECIMAL, ForeignKey, Identity, Boolean
-#from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import declarative_base
-from sqlalchemy.orm import relationship, sessionmaker
-import urllib
+from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
@@ -68,6 +70,7 @@ class Varietal(Base):
 
     vino = relationship("Vino", back_populates="varietales")
 
+
 class Vino(Base):
     __tablename__ = 'Vino'
     idVino = Column(Integer, primary_key=True, nullable=False)
@@ -82,5 +85,43 @@ class Vino(Base):
     bodegas = relationship("Bodega", back_populates="vinos")
     resenias = relationship("Resenia", back_populates="vino")
     varietales = relationship("Varietal", back_populates="vino")
+    
+    #@staticmethod
+    #def consultar_vinos():
+    #    session = Session()
+    #    vinos = session.query(Vino).all()
+    #    session.close()
+    #    return vinos
+    def crear_lista_bodegas():
+        bodegas = []
+        for i in range(10):
+            pass
+        return bodegas
+
+    def crear_lista_varietal():
+        varietal = []
+        for i in range(10):
+            pass
+        return varietal
 
 
+ #   @staticmethod
+    def consultar_vinos(lista_vinos):
+        etiquetas = os.listdir('dominio/extras/etiquetas')
+        nombres = ['Cabernet Sauvignon', 'Airén', 'Chardonnay', 'Syrah', 'Garnacha', 'Sauvignon Blanc', 'Trebbiano Toscano', 'Tempranillo']
+        bodega = bodegas = []#crear_lista_bodegas()
+        varietal = varietal = []#crear_lista_varietal()
+        for i in range(30):
+            añada = random.randint(1990, 2023)
+            año = random.randint(2000, 2023)
+            mes = random.randint(1, 12)
+            dia = random.randint(1, 28)
+            fechaActualizacion = datetime.datetime(año, mes, dia)
+            imagenEtiqueta = random.choice(etiquetas)
+            nombre = random.choice(nombres)
+            notaDeCataBodega = random.randint(1, 5)
+            precioARS = random.randint(2000, 35000)
+
+            nuevo_vino = Vino(añada, fechaActualizacion, imagenEtiqueta, nombre, notaDeCataBodega, precioARS, bodega, varietal)
+            lista_vinos.append(nuevo_vino)
+        return lista_vinos
