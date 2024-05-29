@@ -6,7 +6,7 @@ from Clases import Bodega, Pais, Provincia, RegionVitivinicola, Reseña, Varieta
 # Define the connection string
 params = urllib.parse.quote_plus(
     'DRIVER={ODBC Driver 17 for SQL Server};'
-    'SERVER=.;'
+    'SERVER=DESKTOP-BFMGAUT/SQLEXPRESS;'
     'DATABASE=Bon_vino;'
     'Trusted_Connection=yes;'
 )
@@ -39,7 +39,7 @@ try:
         print(region.__dict__)
 
     print("\nResenias:")
-    resenias = session.query(Resenia).all()
+    resenias = session.query(Reseña).all()
     for resenia in resenias:
         print(resenia.__dict__)
 
