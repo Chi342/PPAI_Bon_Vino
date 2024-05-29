@@ -83,48 +83,32 @@ class DTOVino(Base):
     nombre = Column(String(50), nullable=True)
     notaDeCataBodega = Column(Integer, nullable=True)
     precioARS = Column(DECIMAL(10, 2), nullable=True)
-    bodega = Column(Integer, ForeignKey('Bodega.id'), nullable=False)  # Update column name here
+    bodega = Column(Integer, nullable=False)
+    #bodega = Column(Integer, ForeignKey('Bodega.id'), nullable=False)  # Update column name here
 
 #    bodegas = relationship("Bodega", back_populates="vinos")
 #    resenias = relationship("Resenia", back_populates="vino")
 #    varietales = relationship("Varietal", back_populates="vino")
     
-    #@staticmethod
-    #def consultar_vinos():
-    #    session = Session()
-    #    vinos = session.query(Vino).all()
-    #    session.close()
-    #    return vinos
-    def crear_lista_bodegas():
-        bodegas = []
-        for i in range(10):
-            pass
-        return bodegas
-
-    def crear_lista_varietal():
-        varietales = []
-        for i in range(10):
-            pass
-        return varietales
-
-
     @staticmethod
     def consultar_vinos(lista_vinos):
         session = Session()
         vinos = session.query(DTOVino).all()
         session.close()
         
-        etiquetas = os.listdir('dominio/extras/etiquetas')
+        etiquetas = os.listdir('Clases/extras/etiquetas')
         bodega = []#crear_lista_bodegas()
         varietal = []#crear_lista_varietales()
         for i in range(len(vinos)):
-            idVino = i + 100
+            idVino = i
             añada = vinos[i].aniada
             fechaActualizacion = vinos[i].fechaActualizacion
             imagenEtiqueta = random.choice(etiquetas)
             nombre = vinos[i].nombre
             notaDeCataBodega=vinos[i].notaDeCataBodega
             precioARS = vinos[i].precioARS
+            bodega = vinos[i].bodega
+            varietal = vinos[i].varietal
 
             nuevo_vino = Vino(añada, fechaActualizacion,imagenEtiqueta, nombre, notaDeCataBodega, precioARS, bodega, varietal)
             lista_vinos.append(nuevo_vino)
