@@ -2,12 +2,8 @@ from PantallaRankingVinos import *
 import tkinter as tk
 from tkinter import PhotoImage, Menu
 from GestorRankingVinos import *
+from TodasLasClases import *
 from TodasLasClases import Vino
-#from Vino import *
-import random
-import os
-import datetime
-
 
 def test():
     def generar_ranking_vinos():
@@ -45,7 +41,6 @@ def test():
             pass
         return bodegas
 
-
     def crear_lista_varietal():
         varietal = []
         for i in range(10):
@@ -53,29 +48,21 @@ def test():
         return varietal
 
     def cargar_vinos(lista_vinos):
-        etiquetas = os.listdir('Clases/extras/etiquetas')
-        nombres = ['Cabernet Sauvignon', 'Airén', 'Chardonnay', 'Syrah', 'Garnacha', 'Sauvignon Blanc', 'Trebbiano Toscano', 'Tempranillo']
-        bodega = crear_lista_bodegas()
-        varietal = crear_lista_varietal()
-        for i in range(30):
-            añada = random.randint(1990, 2023)
-            año = random.randint(2000, 2023)
-            mes = random.randint(1, 12)
-            dia = random.randint(1, 28)
-            fechaActualizacion = datetime.datetime(año, mes, dia)
-            imagenEtiqueta = random.choice(etiquetas)
-            nombre = random.choice(nombres)
-            notaDeCataBodega = random.randint(1, 5)
-            precioARS = random.randint(2000, 35000)
-
-            nuevo_vino = Vino(añada, fechaActualizacion, imagenEtiqueta, nombre, notaDeCataBodega, precioARS, bodega, varietal)
-            lista_vinos.append(nuevo_vino)
+        vinos = Vino.consultar_vinos()  # Assuming there is a static method 'consultar_vinos' in the 'Vino' class
+        lista_vinos.extend(vinos)
         return lista_vinos
 
 
-    lista_vinos = []
-    lista_vinos = cargar_vinos(lista_vinos)
-
+    # Crear una lista vacía de vinos
+    lista_de_vinos = []
+    
+    # Llamar a la función cargar_vinos con la lista de vinos como argumento
+    lista_de_vinos = cargar_vinos(lista_de_vinos)
+    
+    # Ahora, lista_de_vinos debería contener los vinos cargados por la función
+    for vino in lista_de_vinos:
+        print(vino)
+        
     ventana = tk.Tk()
     ventana.geometry('1280x720')
     ventana.title('BonVino')
