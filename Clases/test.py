@@ -1,7 +1,7 @@
 import datetime
 import os
 import random
-import tkinter as tk
+import tkinter
 from tkinter import PhotoImage, Menu
 from GestorRankingVinos import *
 from PantallaRankingVinos import *
