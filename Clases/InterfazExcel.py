@@ -9,6 +9,6 @@ class InterfazExcel:
     def __init__(self):
         pass
 
-    def exportarExcel(self, ):
+    def exportarExcel(self, vinos):
         pass
 
