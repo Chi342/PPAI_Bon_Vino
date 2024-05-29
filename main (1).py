@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import urllib
-from dominio.TodasLasClases import Bodega, Pais, Provincia, RegionVitivinicola, Resenia, Varietal, Vino
+from Clases import Bodega, Pais, Provincia, RegionVitivinicola, Reseña, Varietal, Vino
 
 # Define the connection string
 params = urllib.parse.quote_plus(
