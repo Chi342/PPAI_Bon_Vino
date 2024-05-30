@@ -1,7 +1,7 @@
 import datetime
 import os
 import random
-import tkinter
+import tkinter as tk
 from tkinter import PhotoImage, Menu
 from GestorRankingVinos import *
 from PantallaRankingVinos import *
@@ -12,7 +12,7 @@ def test():
     def generar_ranking_vinos():
 
         gestor = GestorRankingVinos(lista_vinos)
-        pantalla_ranking = PantallaRankingVinos('360x720', 'BonVino - Generar ranking de vinos', 'Clases/extras/icono.ico', '#5C1D05', gestor)
+        pantalla_ranking = PantallaRankingVinos('360x720', 'BonVino - Generar ranking de vinos', 'extras/icono.ico', '#5C1D05', gestor)
         gestor.pantalla = pantalla_ranking
         pantalla_ranking.opcGenerarRankingVinos()
 
