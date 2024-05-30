@@ -1,6 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import sys
+
+from Bodega import *
+import Pais
+import Provincia
+import RegionVitivinicola
 sys.path.append('C:/Users/Roberto/source/repos/robertoutn/PPAI_BON_VINO/')
 import datetime
 import os
@@ -95,7 +100,41 @@ class DTOVino(Base):
     def consultar_vinos(lista_vinos):
         session = Session()
         vinos = session.query(DTOVino).all()
+        lista_bodegas = []  # Define the "lista_bodegas" variable
+        bodegas = session.query(DTOBodega).all()
+        for b in bodegas:
+            idBodega = b.id
+            coordenadasUbicacion = b.coordenadasUbicacion
+            descripcion = b.descripcion
+            historia = b.historia
+            nombre = b.nombre
+            periodoActualizacion = b.periodoActualizacion
+            regionVitivinicola = session.query(DTORegionVitivinicola).filter(DTORegionVitivinicola.id == b.regionVitivinicola).first()
+            regionVitivinicola = RegionVitivinicola(regionVitivinicola.nombre, regionVitivinicola.descripcion, regionVitivinicola.provincia)
+            lista_bodegas.append(Bodega(coordenadasUbicacion, descripcion, historia, nombre, periodoActualizacion, regionVitivinicola))
         session.close()
+        
+        paises = session.query(DTOPais).all()
+        lista_paises = []
+        for p in paises:
+            idPais = p.id
+            nombre = p.nombre
+            lista_paises.append(Pais(nombre))
+        session.close()
+        
+        def crear_lista_regiones():
+            session = Session()
+            regiones = session.query(DTORegionVitivinicola).all()
+            lista_regiones = []
+            for r in regiones:
+                idRegion = r.id
+                nombre = r.nombre
+                descripcion = r.descripcion
+                provincia = session.query(DTOProvincia).filter(DTOProvincia.id == r.provincia).first()
+                provincia = Provincia(provincia.nombre, provincia.pais)
+                lista_regiones.append(RegionVitivinicola(nombre, descripcion, provincia))
+            session.close()
+            return lista_regiones
         
         def crear_lista_resenias(i):
             # Add your implementation here
@@ -121,7 +160,6 @@ class DTOVino(Base):
             nombre = vinos[i].nombre
             notaDeCataBodega=vinos[i].notaDeCataBodega
             precioARS = vinos[i].precioARS
-            bodega = vinos[i].bodega
             resenias = crear_lista_resenias(i)
             nuevo_vino = Vino(añada, fechaActualizacion,imagenEtiqueta, nombre, notaDeCataBodega, precioARS, bodega, resenias)
             lista_vinos.append(nuevo_vino)

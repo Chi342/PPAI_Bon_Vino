@@ -20,13 +20,16 @@ class Vino:
         vinosQueCumplenConFiltros = []  # Define the variable here
         for i in range(len(self.reseñas)):
             enPeriodo = self.reseñas[i].sosDePeriodo(fechaDesde, fechaHasta)
-            if enPeriodo:
+            sosDeTipo = self.reseñas[i].sosDeSommelier()
+            if enPeriodo and sosDeTipo:
                 vinosQueCumplenConFiltros.append(self.reseñas[i])
+        
         return vinosQueCumplenConFiltros
 
     def buscarInfoBodega(self, ):
         nombreBodega = self.bodega.getNombre()
-        regionYPais = self.bodega.obtenerRegionYPais()
+        region,pais = self.bodega.obtenerRegionYPais()
+        return nombreBodega, region, pais
 
     def buscarVarietal(self, ):
         varietal = self.varietal.getDescripción()

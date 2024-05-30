@@ -52,7 +52,12 @@ class GestorRankingVinos:
         self.vinosQueCumplenConFiltros = []
         for vino in self.vinosOrdenados:
             if vino.tenesResenasDeTipoEnPeriodo(self.fechaDesde, self.fechaHasta):
-                self.vinosQueCumplenConFiltros.append(vino)
+                nombreDeVino = vino.nombre
+                precioDeVino = vino.precioARS
+                bodega, region, pais = vino.buscarInfoBodega()
+                varietales = vino.buscarVarietal()
+                listaVinos = [nombreDeVino, precioDeVino, bodega, region, pais, varietales]
+                self.vinosQueCumplenConFiltros.append(listaVinos)        
         return self.vinosQueCumplenConFiltros
             
     def calcularPuntajeDeSommelierEnPeriodo(self, ):
