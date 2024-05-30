@@ -1,6 +1,8 @@
 from PantallaRankingVinos import *
 from tkinter import *
 
+from Clases.Vino import *
+
 
 class GestorRankingVinos:
     def __init__(self, lista_vinos):
@@ -47,9 +49,16 @@ class GestorRankingVinos:
     def tomarConfirmacionGenReporte(self):
         self.buscarVinosConResenasEnPeriodo()
 
-    def buscarVinosConResenasEnPeriodo(self, ):
-        pass
-
+    def buscarVinosConResenasEnPeriodo(self):
+        self.vinosQueCumplenConFiltros = []
+        for vino in self.vinosOrdenados:
+            if vino.tenesResenasDeTipoEnPeriodo(self.fechaDesde, self.fechaHasta):
+                self.vinosQueCumplenConFiltros.append(vino)
+        for vino in self.vinosQueCumplenConFiltros:
+            print(vino)
+            for resena in vino.resenas:
+                print(resena)
+            
     def calcularPuntajeDeSommelierEnPeriodo(self, ):
         pass
 

@@ -4,13 +4,12 @@ import tkinter as tk
 from tkinter import PhotoImage, Menu
 import sys
 
-import GestorRankingVinos
 import PantallaRankingVinos
 import tkinter as tk
 from tkinter import PhotoImage, Menu
 import sys
-import GestorRankingVinos
-import PantallaRankingVinos
+from Clases.PantallaRankingVinos import PantallaRankingVinos
+from Clases.GestorRankingVinos import GestorRankingVinos
 from dominio.TodasLasClases import *
 from Clases.Vino import *
 

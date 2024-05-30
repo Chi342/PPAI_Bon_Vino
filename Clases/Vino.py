@@ -1,6 +1,9 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
+from Clases.Reseña import Reseña
+
+
 class Vino:
     def __init__(self, añada, fechaActualizacion, imagen, nombre, nota, precio, bodega, reseñas):
         self.añada = añada
@@ -13,10 +16,13 @@ class Vino:
         self.reseñas = reseñas
         self.varietales = []
 
-    def tenesResenasDeTipoEnPeriodo(self, ):
-        for i in range(len(self.reseña)):
-            enPeriodo = self.reseña[i].sosDePeriodo()
-            esDeSommelier = self.reseña[i].sosDeSommelier()
+    def tenesResenasDeTipoEnPeriodo(self,fechaDesde, fechaHasta):
+        vinosQueCumplenConFiltros = []  # Define the variable here
+        for i in range(len(self.reseñas)):
+            enPeriodo = self.reseñas[i].sosDePeriodo(fechaDesde, fechaHasta)
+            if enPeriodo:
+                vinosQueCumplenConFiltros.append(self.reseñas[i])
+        return vinosQueCumplenConFiltros
 
     def buscarInfoBodega(self, ):
         nombreBodega = self.bodega.getNombre()

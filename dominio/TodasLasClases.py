@@ -11,6 +11,7 @@ from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import relationship
 from Clases.Vino import Vino
 from database import Session
+from Clases.Reseña import Reseña
 
 Base = declarative_base()
 
@@ -107,7 +108,7 @@ class DTOVino(Base):
                 fechaResenia = r.fechaResenia
                 puntaje = r.puntaje
                 idVino = r.idVino
-                resenia.append(idResenia)
+                resenia.append(Reseña(comentario, premium, fechaResenia.year, fechaResenia.month, fechaResenia.day, puntaje))
                 print("Vino: ", idVino, "Reseña: ", idResenia, "Comentario: ", comentario, "Premium: ", premium, "Fecha: ", fechaResenia, "Puntaje: ", puntaje)
                 print(resenia)
                 #ans = input("Please enter: ")
@@ -128,6 +129,8 @@ class DTOVino(Base):
             nuevo_vino = Vino(añada, fechaActualizacion,imagenEtiqueta, nombre, notaDeCataBodega, precioARS, bodega, resenias)
             lista_vinos.append(nuevo_vino)
             print("nuevo_vino.reseñas:",nuevo_vino.reseñas)
+            
+        """
         for vino in lista_vinos:
             print("Vino:", vino.nombre)
             print("Añada:", vino.añada)
@@ -138,4 +141,5 @@ class DTOVino(Base):
             print("Bodega:", vino.bodega)
             print("Reseñas:", vino.reseñas)
             print()
+            """
         return lista_vinos

@@ -11,10 +11,11 @@ class Reseña:
         self.puntaje = puntaje
 
     def sosDePeriodo(self, fechaDesde, fechaHasta):
-        if fechaDesde < self.fechaReseña < fechaHasta:
+        fechaReseñaDate = self.fechaReseña.date()
+        if fechaDesde < fechaReseñaDate < fechaHasta:
             return True
         return False
-
+    
     def sosDeSommelier(self, ):
         return self.esPremium
 
