@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 
 class Vino:
-    def __init__(self, añada, fechaActualizacion, imagen, nombre, nota, precio, bodega, varietal):
+    def __init__(self, añada, fechaActualizacion, imagen, nombre, nota, precio, bodega, reseñas):
         self.añada = añada
         self.fechaActualización = fechaActualizacion
         self.imagenEtiqueta = imagen
@@ -10,8 +10,8 @@ class Vino:
         self.notaDeCataBodega = nota
         self.precioARS = precio
         self.bodega = bodega
-        self.reseña = []
-        self.varietal = varietal
+        self.reseñas = reseñas
+        self.varietales = []
 
     def tenesResenasDeTipoEnPeriodo(self, ):
         for i in range(len(self.reseña)):

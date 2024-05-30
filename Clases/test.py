@@ -59,19 +59,23 @@ def test():
     # Ahora, lista_de_vinos debería contener los vinos cargados por la función
     print("\nVinos:")
     for vino in lista_de_vinos:
-    #    print("ID:", vino.idVino)
         print("Añada:", vino.añada)
         print("Fecha de actualización:", vino.fechaActualización)
         print("Imagen de etiqueta:", vino.imagenEtiqueta)
         print("Nombre:", vino.nombre)
         print("Nota de cata de bodega:", vino.notaDeCataBodega)
         print("Precio en ARS:", vino.precioARS)
+        print("Bodega:", vino.bodega)
+        for resenia in vino.reseñas:
+            print("Reseña:", resenia)
         
+    print("\nCantidad de vinos cargados:", len(lista_de_vinos))
+    
     ventana = tk.Tk()
     ventana.geometry('1280x720')
     ventana.title('BonVino')
-    ventana.iconbitmap('extras/icono.ico')
-    imagen_fondo = PhotoImage(file='extras/BonVINO.png')
+    ventana.iconbitmap('Clases/extras/icono.ico')
+    imagen_fondo = PhotoImage(file='Clases/extras/BonVINO.png')
     etiqueta_fondo = tk.Label(ventana, image=imagen_fondo)
     etiqueta_fondo.place(relwidth=1, relheight=1)
 
