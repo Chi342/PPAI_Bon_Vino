@@ -56,7 +56,7 @@ class GestorRankingVinos:
                 self.vinosQueCumplenConFiltros.append(vino)
         for vino in self.vinosQueCumplenConFiltros:
             print(vino)
-            for resena in vino.resenas:
+            for resena in vino.reseñas:
                 print(resena)
             
     def calcularPuntajeDeSommelierEnPeriodo(self, ):
