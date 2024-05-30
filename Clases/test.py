@@ -70,8 +70,8 @@ def test():
     ventana = tk.Tk()
     ventana.geometry('1280x720')
     ventana.title('BonVino')
-    ventana.iconbitmap('Clases/extras/icono.ico')
-    imagen_fondo = PhotoImage(file='Clases/extras/BonVINO.png')
+    ventana.iconbitmap('extras/icono.ico')
+    imagen_fondo = PhotoImage(file='extras/BonVINO.png')
     etiqueta_fondo = tk.Label(ventana, image=imagen_fondo)
     etiqueta_fondo.place(relwidth=1, relheight=1)
 

@@ -2,6 +2,7 @@ import tkinter as tk
 from tkcalendar import DateEntry
 from GestorRankingVinos import *
 
+
 class PantallaRankingVinos:
     def __init__(self, resolucion, nombre, icono, color, gestor):
 
@@ -30,8 +31,6 @@ class PantallaRankingVinos:
 
         self.gestor.opcGenerarRankingVinos()
 
-        self.solicitarSelFechaDesdeHasta()
-
         self.ventana_ranking.mainloop()
 
     def solicitarSelFechaDesdeHasta(self):
@@ -46,18 +45,13 @@ class PantallaRankingVinos:
         self.calendario_desde.grid(row=0, column=1, padx=15, pady=15)
         self.calendario_hasta.grid(row=1, column=1, padx=15)
 
-        self.boton_validar_fecha = tk.Button(self.ventana_ranking, text='Validar', command=self.tomarSelFechas)
+        self.boton_validar_fecha = tk.Button(self.ventana_ranking, text='Validar', command=self.tomarSelFechaDesdeHasta)
         self.boton_validar_fecha.grid(row=2, column=0, pady=15)
 
-    def tomarSelFechaDesde(self):
+    def tomarSelFechaDesdeHasta(self):
         self.fechaDesde = self.calendario_desde.get_date()
-
-    def tomarSelFechaHasta(self):
         self.fechaHasta = self.calendario_hasta.get_date()
-    
-    def tomarSelFechas(self):
-        self.tomarSelFechaDesde()
-        self.tomarSelFechaHasta()
+        print(self.fechaDesde, self.fechaHasta)
         self.validarPeriodo()
 
     def validarPeriodo(self):
@@ -102,7 +96,7 @@ class PantallaRankingVinos:
         self.filtro_sommelier.config(state='disabled')
         self.boton_reseña.config(state='disabled')
         self.tipoReseña = resultado
-        self.gestor.tomarSelTipoReseña()
+        self.gestor.tomarSelTipoReseña(self.tipoReseña)
 
     def solicitarSelTipoVisualizacion(self, ):
         self.opcion_visualizacion = tk.IntVar()
@@ -125,7 +119,7 @@ class PantallaRankingVinos:
         self.pantalla.config(state='disabled')
         self.boton_visualizacion.config(state='disabled')
         self.tipoVisualizacion = resultado
-        self.gestor.tomarSelTipoVisualizacion()
+        self.gestor.tomarSelTipoVisualizacion(resultado)
 
     def solicitarConfirmacionGenReporte(self):
         self.ventana_emergente = tk.Toplevel(self.ventana_ranking)

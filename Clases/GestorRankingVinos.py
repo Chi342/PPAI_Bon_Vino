@@ -32,15 +32,15 @@ class GestorRankingVinos:
             validado = False
         return validado
 
-    def tomarSelTipoReseña(self):
-        self.tipoReseña = self.pantalla.tipoReseña
+    def tomarSelTipoReseña(self, tipoReseña):
+        self.tipoReseña = tipoReseña
         print(self.tipoReseña)
         
         self.pantalla.solicitarSelTipoVisualizacion()
 
 
-    def tomarSelTipoVisualizacion(self, ):
-        self.tipoVisualizacion = self.pantalla.tipoVisualizacion
+    def tomarSelTipoVisualizacion(self, tipoVisualizacion):
+        self.tipoVisualizacion = tipoVisualizacion
         print(self.tipoVisualizacion)
         self.pantalla.solicitarConfirmacionGenReporte()
 
@@ -48,7 +48,7 @@ class GestorRankingVinos:
         self.buscarVinosConResenasEnPeriodo()
 
     def buscarVinosConResenasEnPeriodo(self, ):
-        self.vinosOrdenados
+        pass
 
     def calcularPuntajeDeSommelierEnPeriodo(self, ):
         pass
