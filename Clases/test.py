@@ -12,7 +12,7 @@ def test():
     def generar_ranking_vinos():
 
         gestor = GestorRankingVinos(lista_vinos)
-        pantalla_ranking = PantallaRankingVinos('360x720', 'BonVino - Generar ranking de vinos', 'extras/icono.ico', '#5C1D05', gestor)
+        pantalla_ranking = PantallaRankingVinos('360x720', 'BonVino - Generar ranking de vinos', 'PPAI_BON_VINO\Clases\extras\icono.ico', '#5C1D05', gestor)
         gestor.pantalla = pantalla_ranking
         pantalla_ranking.opcGenerarRankingVinos()
 
@@ -39,13 +39,12 @@ def test():
 
 
     lista_vinos = []
-    # lista_vinos = cargar_vinos(lista_vinos)
 
     ventana = tk.Tk()
     ventana.geometry('1280x720')
     ventana.title('BonVino')
-    ventana.iconbitmap('extras/icono.ico')
-    imagen_fondo = PhotoImage(file='extras/BonVINO.png')
+    ventana.iconbitmap('PPAI_BON_VINO\Clases\extras\icono.ico')
+    imagen_fondo = PhotoImage(file='PPAI_BON_VINO\Clases\extras\BonVINO.png')
     etiqueta_fondo = tk.Label(ventana, image=imagen_fondo)
     etiqueta_fondo.place(relwidth=1, relheight=1)
 

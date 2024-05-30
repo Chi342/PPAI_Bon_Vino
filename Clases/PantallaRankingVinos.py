@@ -30,7 +30,8 @@ class PantallaRankingVinos:
         self.ventana_ranking.config(bg=self.__color)
 
         self.gestor.opcGenerarRankingVinos()
-
+        self.boton_cancelar = tk.Button(self.ventana_ranking, text="Cancelar", command=self.ventana_ranking.destroy)
+        self.boton_cancelar.place(x=250, y=600, anchor='s')
         self.ventana_ranking.mainloop()
 
     def solicitarSelFechaDesdeHasta(self):
@@ -51,17 +52,14 @@ class PantallaRankingVinos:
     def tomarSelFechaDesdeHasta(self):
         self.fechaDesde = self.calendario_desde.get_date()
         self.fechaHasta = self.calendario_hasta.get_date()
-        print(self.fechaDesde, self.fechaHasta)
         self.validarPeriodo()
 
     def validarPeriodo(self):
-        print('ejecutar')
         if (self.fechaDesde != None and self.fechaHasta != None) and self.fechaDesde <= self.fechaHasta:
-            print('borrando')
             self.calendario_desde.state(['disabled'])
             self.calendario_hasta.state(['disabled'])
             self.boton_validar_fecha.config(state='disabled')
-            self.gestor.tomarSelFechaDesdeYHasta()
+            self.gestor.tomarSelFechaDesdeYHasta(self.fechaDesde, self.fechaHasta)
         else:
             self.ventana_emergente = tk.Toplevel(self.ventana_ranking)
             self.ventana_emergente.title('Error')
@@ -74,52 +72,64 @@ class PantallaRankingVinos:
             self.boton_emergente.grid(row=1, column=0)
 
     def solicitarSelTipoReseña(self):
-
         self.opcion_filtro = tk.IntVar()
-        
-        self.filtro_normales = tk.Radiobutton(self.ventana_ranking, text='Reseñas normales', variable=self.opcion_filtro, value=1, indicatoron=0)
-        self.filtro_sommelier = tk.Radiobutton(self.ventana_ranking, text='Reseñas de Sommelier', variable=self.opcion_filtro, value=2, indicatoron=0)
-        self.filtro_amigos = tk.Radiobutton(self.ventana_ranking, text='Reseñas de Amigos', variable=self.opcion_filtro, value=3, indicatoron=0)
+
+        self.label_reseña = tk.Label(self.ventana_ranking, text='Elija el tipo de Reseña')
+
+        self.filtro_normales = tk.Button(self.ventana_ranking, text="NORMAL", command=lambda: self.tomarTipoReseña("normal"))
+        self.filtro_sommelier = tk.Button(self.ventana_ranking, text="SOMMELIER", command=lambda: self.tomarTipoReseña("sommelier"))
+        self.filtro_amigos = tk.Button(self.ventana_ranking, text="AMIGO", command=lambda: self.tomarTipoReseña("amigo"))
 
         self.filtro_normales.grid(row=4, column=0, padx=15, sticky='w')
         self.filtro_sommelier.grid(row=5, column=0, padx=15, pady=15, sticky='w')
         self.filtro_amigos.grid(row=6, column=0, padx=15, sticky='w')
 
-        self.boton_reseña = tk.Button(self.ventana_ranking, text='Confirmar', command=self.tomarTipoReseña)
-        self.boton_reseña.grid(row=7, column=0, pady=15)
+    def tomarTipoReseña(self, reseña):
+        if(reseña == 'sommelier'):
+            self.filtro_normales.config(state='disabled')
+            self.filtro_amigos.config(state='disabled')
+            self.filtro_sommelier.config(state='disabled')
+            self.tipoReseña = reseña
+            self.gestor.tomarSelTipoReseña(reseña)
+        else:
+            self.ventana_emergente = tk.Toplevel(self.ventana_ranking)
+            self.ventana_emergente.title('Error')
+            self.ventana_emergente.geometry('360x360')
 
-    
-    def tomarTipoReseña(self):
-        resultado = 'Reseñas de Sommelier'
-        self.filtro_normales.config(state='disabled')
-        self.filtro_amigos.config(state='disabled')
-        self.filtro_sommelier.config(state='disabled')
-        self.boton_reseña.config(state='disabled')
-        self.tipoReseña = resultado
-        self.gestor.tomarSelTipoReseña(self.tipoReseña)
+            self.etiqueta_emergente = tk.Label(self.ventana_emergente, text='Este CU trabaja con la opcion Sommelier')
+            self.etiqueta_emergente.grid(row=0, column=0)
 
-    def solicitarSelTipoVisualizacion(self, ):
-        self.opcion_visualizacion = tk.IntVar()
-        
-        self.pdf = tk.Radiobutton(self.ventana_ranking, text='Visualización PDF', variable=self.opcion_visualizacion, value=1, indicatoron=0)
-        self.excel = tk.Radiobutton(self.ventana_ranking, text='Visualización en Excel', variable=self.opcion_visualizacion, value=2, indicatoron=0)
-        self.pantalla = tk.Radiobutton(self.ventana_ranking, text='Visualización en pantalla', variable=self.opcion_visualizacion, value=3, indicatoron=0)
+            self.boton_emergente = tk.Button(self.ventana_emergente, text='Aceptar', command=self.ventana_emergente.destroy)
+            self.boton_emergente.grid(row=1, column=0)
 
-        self.pdf.grid(row=8, column=0, padx=15, sticky='w')
-        self.excel.grid(row=9, column=0, padx=15, pady=15, sticky='w')
-        self.pantalla.grid(row=10, column=0, padx=15, sticky='w')
+    def solicitarSelTipoVisualizacion(self):
+        self.label_visualizacion = tk.Label(self.ventana_ranking, text='Elija el tipo de visualizacion')
+        self.pdf = tk.Button(self.ventana_ranking, text="PDF", command=lambda: self.tomarTipoVisualizacion("pdf"))
+        self.excel = tk.Button(self.ventana_ranking, text="EXCEL", command=lambda: self.tomarTipoVisualizacion("excel"))
+        self.pantalla = tk.Button(self.ventana_ranking, text="PANTALLA", command=lambda: self.tomarTipoVisualizacion("pantalla"))
 
-        self.boton_visualizacion = tk.Button(self.ventana_ranking, text='Confirmar', command=self.tomarTipoVisualizacion)
-        self.boton_visualizacion.grid(row=11, column=0, pady=15)
+        self.label_visualizacion.grid(row=11, column=0, padx=15, sticky='w')
+        self.pdf.grid(row=12, column=0, padx=15, sticky='w')
+        self.excel.grid(row=13, column=0, padx=15, pady=15, sticky='w')
+        self.pantalla.grid(row=14, column=0, padx=15, sticky='w')
 
-    def tomarTipoVisualizacion(self):
-        resultado = 'Excel'
-        self.pdf.config(state='disabled')
-        self.excel.config(state='disabled')
-        self.pantalla.config(state='disabled')
-        self.boton_visualizacion.config(state='disabled')
-        self.tipoVisualizacion = resultado
-        self.gestor.tomarSelTipoVisualizacion(resultado)
+    def tomarTipoVisualizacion(self, visualizacion):
+        if(visualizacion == 'excel'):
+            self.pdf.config(state='disabled')
+            self.excel.config(state='disabled')
+            self.pantalla.config(state='disabled')
+            self.tipoVisualizacion = visualizacion
+            self.gestor.tomarSelTipoVisualizacion(visualizacion)
+        else:
+            self.ventana_emergente = tk.Toplevel(self.ventana_ranking)
+            self.ventana_emergente.title('Error')
+            self.ventana_emergente.geometry('360x360')
+
+            self.etiqueta_emergente = tk.Label(self.ventana_emergente, text='Este CU trabaja con la opcion Excel')
+            self.etiqueta_emergente.grid(row=0, column=0)
+
+            self.boton_emergente = tk.Button(self.ventana_emergente, text='Aceptar', command=self.ventana_emergente.destroy)
+            self.boton_emergente.grid(row=1, column=0)
 
     def solicitarConfirmacionGenReporte(self):
         self.ventana_emergente = tk.Toplevel(self.ventana_ranking)
@@ -134,7 +144,7 @@ class PantallaRankingVinos:
         self.boton_emergente_confirmar = tk.Button(self.ventana_emergente, text='Confirmar', command=self.tomarConfirmacionGenReporte)
         self.boton_emergente.grid(row=1, column=0)
         self.boton_emergente_confirmar.grid(row=1, column=1)
-    
+
     def cancelarReporte(self):
         self.ventana_emergente.destroy()
         self.ventana_ranking.destroy()
