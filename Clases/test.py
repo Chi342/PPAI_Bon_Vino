@@ -1,17 +1,11 @@
+import tkinter as tk
 import sys
 sys.path.append('C:/Users/Roberto/source/repos/robertoutn/PPAI_BON_VINO/')
-import tkinter as tk
+from TodasLasClases import *
 from tkinter import PhotoImage, Menu
-import sys
-
-import PantallaRankingVinos
-import tkinter as tk
-from tkinter import PhotoImage, Menu
-import sys
-from Clases.PantallaRankingVinos import PantallaRankingVinos
-from Clases.GestorRankingVinos import GestorRankingVinos
-from dominio.TodasLasClases import *
-from Clases.Vino import *
+from PantallaRankingVinos import PantallaRankingVinos
+from GestorRankingVinos import GestorRankingVinos
+from Vino import *
 
 def test():
     def generar_ranking_vinos():

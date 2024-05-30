@@ -9,9 +9,9 @@ from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, D
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import relationship
-from Clases.Vino import Vino
+from Vino import Vino
 from database import Session
-from Clases.Reseña import Reseña
+from Reseña import Reseña
 
 Base = declarative_base()
 
@@ -109,9 +109,7 @@ class DTOVino(Base):
                 puntaje = r.puntaje
                 idVino = r.idVino
                 resenia.append(Reseña(comentario, premium, fechaResenia.year, fechaResenia.month, fechaResenia.day, puntaje))
-                print("Vino: ", idVino, "Reseña: ", idResenia, "Comentario: ", comentario, "Premium: ", premium, "Fecha: ", fechaResenia, "Puntaje: ", puntaje)
-                print(resenia)
-                #ans = input("Please enter: ")
+#                print("Vino: ", idVino, "Reseña: ", idResenia, "Comentario: ", comentario, "Premium: ", premium, "Fecha: ", fechaResenia, "Puntaje: ", puntaje)
             return resenia
 
         etiquetas = os.listdir('Clases/extras/etiquetas')
@@ -125,21 +123,22 @@ class DTOVino(Base):
             precioARS = vinos[i].precioARS
             bodega = vinos[i].bodega
             resenias = crear_lista_resenias(i)
-            print(resenias)
             nuevo_vino = Vino(añada, fechaActualizacion,imagenEtiqueta, nombre, notaDeCataBodega, precioARS, bodega, resenias)
             lista_vinos.append(nuevo_vino)
-            print("nuevo_vino.reseñas:",nuevo_vino.reseñas)
+            # for vino in lista_vinos:
+            #     print()
+            #     print("Vino:", vino.nombre)
+            #     print("Añada:", vino.añada)
+            #     print("Fecha de Actualización:", vino.fechaActualización)
+            #     print("Imagen de Etiqueta:", vino.imagenEtiqueta)
+            #     print("Nota de Cata de Bodega:", vino.notaDeCataBodega)
+            #     print("Precio en ARS:", vino.precioARS)
+            #     print("Bodega:", vino.bodega)
+            #     for resenia in vino.reseñas:
+            #         print("Reseña:")
+            #         print("Comentario:", resenia.comentario)
+            #         print("es premium:",resenia.esPremium)
+            #         print("Fecha de Reseña:", resenia.fechaReseña)
+            #         print("Puntaje:", resenia.puntaje)
             
-        """
-        for vino in lista_vinos:
-            print("Vino:", vino.nombre)
-            print("Añada:", vino.añada)
-            print("Fecha de Actualización:", vino.fechaActualización)
-            print("Imagen de Etiqueta:", vino.imagenEtiqueta)
-            print("Nota de Cata de Bodega:", vino.notaDeCataBodega)
-            print("Precio en ARS:", vino.precioARS)
-            print("Bodega:", vino.bodega)
-            print("Reseñas:", vino.reseñas)
-            print()
-            """
         return lista_vinos

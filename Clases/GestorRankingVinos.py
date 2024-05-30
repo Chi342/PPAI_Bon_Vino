@@ -1,7 +1,6 @@
 from PantallaRankingVinos import *
 from tkinter import *
-
-from Clases.Vino import *
+from Vino import *
 
 
 class GestorRankingVinos:
@@ -54,10 +53,7 @@ class GestorRankingVinos:
         for vino in self.vinosOrdenados:
             if vino.tenesResenasDeTipoEnPeriodo(self.fechaDesde, self.fechaHasta):
                 self.vinosQueCumplenConFiltros.append(vino)
-        for vino in self.vinosQueCumplenConFiltros:
-            print(vino)
-            for resena in vino.reseñas:
-                print(resena)
+        return self.vinosQueCumplenConFiltros
             
     def calcularPuntajeDeSommelierEnPeriodo(self, ):
         pass

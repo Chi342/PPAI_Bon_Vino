@@ -51,7 +51,6 @@ class PantallaRankingVinos:
     def tomarSelFechaDesdeHasta(self):
         self.fechaDesde = self.calendario_desde.get_date()
         self.fechaHasta = self.calendario_hasta.get_date()
-        print(self.fechaDesde, self.fechaHasta)
         self.validarPeriodo()
 
     def validarPeriodo(self):

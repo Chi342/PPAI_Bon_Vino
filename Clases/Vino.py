@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from Clases.Reseña import Reseña
+from Reseña import Reseña
 
 
 class Vino:
