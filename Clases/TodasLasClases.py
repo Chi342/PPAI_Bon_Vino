@@ -3,9 +3,9 @@
 import sys
 
 from Bodega import *
-import Pais
-import Provincia
-import RegionVitivinicola
+from Pais import Pais
+from Provincia import Provincia
+from RegionVitivinicola import RegionVitivinicola
 sys.path.append('C:/Users/Roberto/source/repos/robertoutn/PPAI_BON_VINO/')
 import datetime
 import os
@@ -114,12 +114,14 @@ class DTOVino(Base):
             lista_bodegas.append(Bodega(coordenadasUbicacion, descripcion, historia, nombre, periodoActualizacion, regionVitivinicola))
         session.close()
         
-        paises = session.query(DTOPais).all()
-        lista_paises = []
-        for p in paises:
-            idPais = p.id
+        provincias = session.query(DTOProvincia).all()
+        lista_provincias = []
+        for p in provincias:
+            idProvincia = p.id
             nombre = p.nombre
-            lista_paises.append(Pais(nombre))
+            pais = session.query(DTOPais).filter(DTOPais.id == p.pais).first()
+            pais = Pais(pais.nombre)
+            lista_provincias.append(Provincia(nombre, pais))
         session.close()
 
         session = Session()
@@ -159,7 +161,9 @@ class DTOVino(Base):
             notaDeCataBodega=vinos[i].notaDeCataBodega
             precioARS = vinos[i].precioARS
             resenias = crear_lista_resenias(i)
-            nuevo_vino = Vino(añada, fechaActualizacion,imagenEtiqueta, nombre, notaDeCataBodega, precioARS, bodega, resenias)
+            bodega = session.query(DTOBodega).filter(DTOBodega.id == vinos[i].bodega).first()
+            bodega = Bodega(bodega.coordenadasUbicacion, bodega.descripcion, bodega.historia, bodega.nombre, bodega.periodoActualizacion, bodega.regionVitivinicola)
+            nuevo_vino = Vino(añada, fechaActualizacion, imagenEtiqueta, nombre, notaDeCataBodega, precioARS, bodega, resenias)
             lista_vinos.append(nuevo_vino)
             # for vino in lista_vinos:
             #     print()
