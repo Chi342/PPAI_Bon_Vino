@@ -7,7 +7,7 @@ from Pais import Pais
 from Provincia import Provincia
 from RegionVitivinicola import RegionVitivinicola
 from Varietal import Varietal
-sys.path.append('C:/Users/Roberto/source/repos/robertoutn/PPAI_BON_VINO/')
+#sys.path.append('C:/Users/Roberto/source/repos/robertoutn/PPAI_BON_VINO/')
 import datetime
 import os
 import random
@@ -96,7 +96,7 @@ class DTOVino(Base):
 #    bodegas = relationship("Bodega", back_populates="vinos")
 #    resenias = relationship("Resenia", back_populates="vino")
 #    varietales = relationship("Varietal", back_populates="vino")
-    
+
     @staticmethod
     def consultar_vinos(lista_vinos):
         session = Session()
@@ -114,7 +114,7 @@ class DTOVino(Base):
             regionVitivinicola = RegionVitivinicola(regionVitivinicola.nombre, regionVitivinicola.descripcion, regionVitivinicola.provincia)
             lista_bodegas.append(Bodega(coordenadasUbicacion, descripcion, historia, nombre, periodoActualizacion, regionVitivinicola))
         session.close()
-        
+
         provincias = session.query(DTOProvincia).all()
         lista_provincias = []
         for p in provincias:
@@ -139,7 +139,7 @@ class DTOVino(Base):
             regionVitivinicola = RegionVitivinicola(regionVitivinicola.nombre, regionVitivinicola.descripcion, regionVitivinicola.provincia)
             lista_bodegas.append(Bodega(coordenadasUbicacion, descripcion, historia, nombre, periodoActualizacion, regionVitivinicola))
         session.close()
-        
+
         session = Session()
         regiones = session.query(DTORegionVitivinicola).all()
         lista_regiones = []
@@ -187,11 +187,11 @@ class DTOVino(Base):
             precioARS = vinos[i].precioARS
             resenias = crear_lista_resenias(i)
             varietales = crear_lista_varietales(i)
-            
+
             bodega = session.query(DTOBodega).filter(DTOBodega.id == vinos[i].bodega).first()
-            
+
             regionVitivinicola = session.query(DTORegionVitivinicola).filter(DTORegionVitivinicola.id == bodega.regionVitivinicola).first()
-            
+
             provincia = session.query(DTOProvincia).filter(DTOProvincia.id == regionVitivinicola.provincia).first()
             pais = session.query(DTOPais).filter(DTOPais.id == provincia.pais).first()
             pais = Pais(pais.nombre)
@@ -201,5 +201,5 @@ class DTOVino(Base):
             bodega = Bodega(bodega.coordenadasUbicacion, bodega.descripcion, bodega.historia, bodega.nombre, bodega.periodoActualizacion, regionVitivinicola)
             nuevo_vino = Vino(añada, fechaActualizacion, imagenEtiqueta, nombre, notaDeCataBodega, precioARS, bodega, resenias, varietales)
             lista_vinos.append(nuevo_vino)
-            
+
         return lista_vinos

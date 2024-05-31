@@ -3,10 +3,11 @@ from sqlalchemy.orm import sessionmaker
 import urllib
 from Clases import Bodega, Pais, Provincia, RegionVitivinicola, Reseña, Varietal, Vino
 
+
 # Define the connection string
 params = urllib.parse.quote_plus(
     'DRIVER={ODBC Driver 17 for SQL Server};'
-    'SERVER=DESKTOP-BFMGAUT/SQLEXPRESS;'
+    'SERVER=DESKTOP-BFMGAUT\SQLEXPRESS;'
     'DATABASE=Bon_vino;'
     'Trusted_Connection=yes;'
 )
