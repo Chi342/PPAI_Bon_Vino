@@ -33,7 +33,7 @@ class Vino:
     def buscarVarietal(self, ):
         varietales = ""
         for i in self.varietales:
-            varietales += str(i.getDescripcion()) + " "
+            varietales += str(i.getDescripcion())
         return varietales
 
     def calcularPuntajeDeSommelierEnPeriodo(self, fechaDesde, fechaHasta):
