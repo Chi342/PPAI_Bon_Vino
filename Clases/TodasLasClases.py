@@ -121,20 +121,18 @@ class DTOVino(Base):
             nombre = p.nombre
             lista_paises.append(Pais(nombre))
         session.close()
-        
-        def crear_lista_regiones():
-            session = Session()
-            regiones = session.query(DTORegionVitivinicola).all()
-            lista_regiones = []
-            for r in regiones:
-                idRegion = r.id
-                nombre = r.nombre
-                descripcion = r.descripcion
-                provincia = session.query(DTOProvincia).filter(DTOProvincia.id == r.provincia).first()
-                provincia = Provincia(provincia.nombre, provincia.pais)
-                lista_regiones.append(RegionVitivinicola(nombre, descripcion, provincia))
-            session.close()
-            return lista_regiones
+
+        session = Session()
+        regiones = session.query(DTORegionVitivinicola).all()
+        lista_regiones = []
+        for r in regiones:
+            idRegion = r.id
+            nombre = r.nombre
+            descripcion = r.descripcion
+            provincia = session.query(DTOProvincia).filter(DTOProvincia.id == r.provincia).first()
+            provincia = Provincia(provincia.nombre, provincia.pais)
+            lista_regiones.append(RegionVitivinicola(nombre, descripcion, provincia))
+        session.close()
         
         def crear_lista_resenias(i):
             # Add your implementation here
