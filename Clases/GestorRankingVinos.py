@@ -106,6 +106,7 @@ class GestorRankingVinos:
         else:
             self.calcularPuntajeDeSommelierEnPeriodo()
 
+# Aplicación de patron experto
     def calcularPuntajeDeSommelierEnPeriodo(self):
         """
         Método que calcula el puntaje de sommelier para cada vino que cumple con los filtros seleccionados.
