@@ -37,11 +37,11 @@ class Vino:
 
     def calcularPuntajeDeSommelierEnPeriodo(self, ):
         puntajes = []
-        for i in range(len(self.reseña)):
-            enPeriodo = self.reseña[i].sosDePeriodo()
-            esDeSommelier = self.reseña[i].sosDeSommelier()
+        for i in range(len(self.reseñas)):
+            enPeriodo = self.reseñas[i].sosDePeriodo()
+            esDeSommelier = self.reseñas[i].sosDeSommelier()
             if enPeriodo and esDeSommelier:
-                puntajes.append(self.reseña[i].getPuntaje)
+                puntajes.append(self.reseñas[i].getPuntaje)
         promPunt = self.calcularPuntajePromedio(puntajes)
         return promPunt
 

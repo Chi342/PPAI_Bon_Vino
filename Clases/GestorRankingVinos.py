@@ -1,6 +1,7 @@
 from PantallaRankingVinos import *
 from tkinter import *
 from Vino import *
+from InterfazExcel import InterfazExcel
 
 
 class GestorRankingVinos:
@@ -58,13 +59,18 @@ class GestorRankingVinos:
                 varietales = vino.buscarVarietal()
                 listaVinos = [nombreDeVino, precioDeVino, bodega, region, pais, varietales]
                 self.vinosQueCumplenConFiltros.append(listaVinos)        
-        return self.vinosQueCumplenConFiltros
+        self.calcularPuntajeDeSommelierEnPeriodo()
             
     def calcularPuntajeDeSommelierEnPeriodo(self, ):
-        pass
+        for vino in self.vinosQueCumplenConFiltros:
+            vino.append(vino.calcularPuntajeDeSommelierEnPeriodo())
+        self.ordenarVinos()
 
     def ordenarVinos(self, ):
-        pass
+        intExcel = InterfazExcel()
+        intExcel.exportarExcel(self.vinosQueCumplenConFiltros)
+
+
 
     def finCU(self, ):
         pass
