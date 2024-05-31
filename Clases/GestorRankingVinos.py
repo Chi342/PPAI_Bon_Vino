@@ -19,14 +19,13 @@ class GestorRankingVinos:
         self.pantalla.solicitarSelFechaDesdeHasta()
 
 
-    def tomarSelFechaDesdeYHasta(self):
-        self.fechaDesde = self.pantalla.fechaDesde
-        self.fechaHasta = self.pantalla.fechaHasta
+    def tomarSelFechaDesdeYHasta(self, fecha_desde, fecha_hasta):
+        self.fechaDesde = fecha_desde
+        self.fechaHasta = fecha_hasta
         print('Las fechas:', self.fechaDesde, self.fechaHasta)
 
         self.pantalla.solicitarSelTipoReseña()
 
-        
     def validarPeriodo(self, fecha_desde, fecha_hasta, validado):
         if fecha_desde <= fecha_hasta:
             validado = True
@@ -36,15 +35,18 @@ class GestorRankingVinos:
 
     def tomarSelTipoReseña(self, tipoReseña):
         self.tipoReseña = tipoReseña
-        print(self.tipoReseña)
-        
-        self.pantalla.solicitarSelTipoVisualizacion()
+        if(self.tipoReseña == "sommelier"):
+            self.pantalla.solicitarSelTipoVisualizacion()
+        else:
+            print('No se elijio la reseña sommelier')
 
 
     def tomarSelTipoVisualizacion(self, tipoVisualizacion):
         self.tipoVisualizacion = tipoVisualizacion
-        print(self.tipoVisualizacion)
-        self.pantalla.solicitarConfirmacionGenReporte()
+        if(self.tipoVisualizacion == "excel"):
+            self.pantalla.solicitarConfirmacionGenReporte()
+        else:
+            print('No se elijio la visualizacion Excel')
 
     def tomarConfirmacionGenReporte(self):
         self.buscarVinosConResenasEnPeriodo()
@@ -58,9 +60,9 @@ class GestorRankingVinos:
                 bodega, region, pais = vino.buscarInfoBodega()
                 varietales = vino.buscarVarietal()
                 listaVinos = [nombreDeVino, precioDeVino, bodega, region, pais, varietales]
-                self.vinosQueCumplenConFiltros.append(listaVinos)        
+                self.vinosQueCumplenConFiltros.append(listaVinos)
         self.calcularPuntajeDeSommelierEnPeriodo()
-            
+
     def calcularPuntajeDeSommelierEnPeriodo(self, ):
         """for vino in self.vinosQueCumplenConFiltros:
             vino.append(vino.calcularPuntajeDeSommelierEnPeriodo())"""
@@ -69,8 +71,7 @@ class GestorRankingVinos:
     def ordenarVinos(self, ):
         intExcel = InterfazExcel()
         intExcel.exportarExcel(self.vinosQueCumplenConFiltros)
-
-
+        self.pantalla.confirmarExportacion()
 
     def finCU(self, ):
         pass
