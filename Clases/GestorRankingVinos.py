@@ -22,8 +22,6 @@ class GestorRankingVinos:
     def tomarSelFechaDesdeYHasta(self, fecha_desde, fecha_hasta):
         self.fechaDesde = fecha_desde
         self.fechaHasta = fecha_hasta
-        print('Las fechas:', self.fechaDesde, self.fechaHasta)
-
         self.pantalla.solicitarSelTipoReseña()
 
     def validarPeriodo(self, fecha_desde, fecha_hasta, validado):
@@ -85,4 +83,3 @@ class GestorRankingVinos:
 
     def finCU(self, ):
         self.pantalla.ventana_ranking.destroy()
-        print('CU finalizado')

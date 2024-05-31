@@ -55,9 +55,7 @@ class PantallaRankingVinos:
         self.validarPeriodo()
 
     def validarPeriodo(self):
-        print('ejecutar')
         if (self.fechaDesde != None and self.fechaHasta != None) and self.fechaDesde <= self.fechaHasta:
-            print('borrando')
             self.calendario_desde.state(['disabled'])
             self.calendario_hasta.state(['disabled'])
             self.boton_validar_fecha.config(state='disabled')
@@ -169,7 +167,7 @@ class PantallaRankingVinos:
     def noHayReseñaSommelier(self):
         self.ventana_confirmacion = tk.Toplevel(self.ventana_ranking)
         self.ventana_confirmacion.title('No tiene reseñas de Sommelier')
-        self.ventana_confirmacion.geometry('360x360')
+        self.ventana_confirmacion.geometry('500x160')
         self.etiqueta_emergente = tk.Label(self.ventana_confirmacion, text='No se encontraron vinos con reseñas de sommelier en el periodo seleccionado')
         self.etiqueta_emergente.grid(row=0, column=0)
 

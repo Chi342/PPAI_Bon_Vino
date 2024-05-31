@@ -13,12 +13,4 @@ class RegionVitivinicola:
     def obtenerPais(self, ):
         return self.provincia.obtenerPais()
 
-    def getDescripción(self, ):
-        return self.descripción
-
-    def setDescripción(self, value):
-        self.descripción = value
-
-    def setNombre(self, value):
-        pass
 

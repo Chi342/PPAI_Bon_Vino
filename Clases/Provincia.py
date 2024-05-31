@@ -9,9 +9,4 @@ class Provincia:
     def obtenerPais(self, ):
         return self.pais.getNombre()
 
-    def getNombre(self, ):
-        return self.nombre
-
-    def setNombre(self, value):
-        self.nombre = value
 

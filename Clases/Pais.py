@@ -8,8 +8,6 @@ class Pais:
     def getNombre(self, ):
         return self.nombre
 
-    def setNombre(self, value):
-        self.nombre = value
 
 
 

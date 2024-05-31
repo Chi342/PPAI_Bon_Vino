@@ -1,8 +1,6 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
-
 from Reseña import Reseña
-
 
 class Vino:
     def __init__(self, añada, fechaActualizacion, imagen, nombre, nota, precio, bodega, reseñas, varietales):
@@ -58,48 +56,3 @@ class Vino:
             promPuntajes = 0
         return promPuntajes
     
-    def getAñada(self, ):
-        return self.añada
-
-    def setAñada(self, value):
-        self.añada = value
-
-    def getFechaActualización(self, ):
-        return self.fechaActualización
-
-    def setFechaActualización(self, value):
-        self.fechaActualización = value
-
-    def getImagenEtiqueta(self, ):
-        return self.imagenEtiqueta
-
-
-    def setImagenEtiqueta(self, value):
-        self.imagenEtiqueta = value
-
-    def getNombre(self, ):
-        return self.nombre
-
-    def setNombre(self, value):
-        self.nombre = value
-
-    def getNotaDeCataBodega(self, ):
-        return self.notaDeCataBodega
-
-    def setNotaDeCataBodega(self, value):
-        self.notaDeCataBodega = value
-
-    def getPrecioARS(self, ):
-        return self.precioARS
-
-    def setPrecioARS(self, value):
-        self.precioARS = value
-
-    def conocerReseña(self, ):
-        return self.precioARS
-
-    def agregarReseña(self, value):
-        self.reseña.append(value)
-
-
-

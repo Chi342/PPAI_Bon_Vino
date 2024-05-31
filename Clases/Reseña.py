@@ -22,25 +22,3 @@ class Reseña:
     def getPuntaje(self, ):
         return self.puntaje
 
-    # def getComentario(self, ):
-    #     pass
-
-    # def setComentario(self, value):
-    #     pass
-
-    # def setEsPremium(self, value):
-    #     pass
-
-    # def getFechaReseña(self, ):
-    #     pass
-
-    # def setFechaReseña(self, value):
-    #     pass
-
-    # def setPuntaje(self, value):
-    #     pass
-
-
-fecha1 = datetime.datetime(2022, 5, 12)
-fecha2 = datetime.datetime(2021, 5, 12)
-print(fecha1 > fecha2)

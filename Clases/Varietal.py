@@ -9,12 +9,3 @@ class Varietal:
     def getDescripcion(self, ):
         return self.descripción
 
-    def setDescripción(self, value):
-        pass
-
-    def getPorcentajeComposición(self, ):
-        pass
-
-    def setPorcentajeComposición(self, value):
-        pass
-
