@@ -42,9 +42,6 @@ class Reseña:
     def getPuntaje(self, ):
         pass
 
-    def setPuntaje(self, value):
-        pass
-
 
 fecha1 = datetime.datetime(2022, 5, 12)
 fecha2 = datetime.datetime(2021, 5, 12)
