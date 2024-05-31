@@ -4,3 +4,4 @@ pip install sqlalchemy
 pip install flask-sqlalchemy
 pip install mssql
 python -m pip install tkcalendar
+pip install xlsxwriter
