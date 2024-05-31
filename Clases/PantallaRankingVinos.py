@@ -2,7 +2,6 @@ import tkinter as tk
 from tkcalendar import DateEntry
 from GestorRankingVinos import *
 
-
 class PantallaRankingVinos:
     def __init__(self, resolucion, nombre, icono, color, gestor):
 
@@ -87,7 +86,6 @@ class PantallaRankingVinos:
         self.boton_reseña = tk.Button(self.ventana_ranking, text='Confirmar', command=self.tomarTipoReseña)
         self.boton_reseña.grid(row=7, column=0, pady=15)
 
-    
     def tomarTipoReseña(self):
         resultado = 'Reseñas de Sommelier'
         self.filtro_normales.config(state='disabled')
@@ -137,7 +135,6 @@ class PantallaRankingVinos:
     def cancelarReporte(self):
         self.ventana_emergente.destroy()
         self.ventana_ranking.destroy()
-
 
     def tomarConfirmacionGenReporte(self):
         self.ventana_emergente.destroy()

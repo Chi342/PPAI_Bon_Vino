@@ -9,9 +9,6 @@ class Varietal:
     def getDescripcion(self, ):
         return self.descripción
 
-    def getDescripción(self, ):
-        pass
-
     def setDescripción(self, value):
         pass
 

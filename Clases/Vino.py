@@ -23,7 +23,6 @@ class Vino:
             sosDeTipo = self.reseñas[i].sosDeSommelier()
             if enPeriodo and sosDeTipo:
                 vinosQueCumplenConFiltros.append(self.reseñas[i])
-        
         return vinosQueCumplenConFiltros
 
     def buscarInfoBodega(self, ):
@@ -32,16 +31,18 @@ class Vino:
         return nombreBodega, region, pais
 
     def buscarVarietal(self, ):
+        varietales = ""
         for i in self.varietales:
-            i.getDescripcion()
+            varietales += str(i.getDescripcion())
+        return varietales
 
-    def calcularPuntajeDeSommelierEnPeriodo(self, ):
+    def calcularPuntajeDeSommelierEnPeriodo(self, fechaDesde, fechaHasta):
         puntajes = []
         for i in range(len(self.reseñas)):
-            enPeriodo = self.reseñas[i].sosDePeriodo()
+            enPeriodo = self.reseñas[i].sosDePeriodo(fechaDesde, fechaHasta)
             esDeSommelier = self.reseñas[i].sosDeSommelier()
             if enPeriodo and esDeSommelier:
-                puntajes.append(self.reseñas[i].getPuntaje)
+                puntajes.append(self.reseñas[i].getPuntaje())
         promPunt = self.calcularPuntajePromedio(puntajes)
         return promPunt
 
@@ -49,13 +50,14 @@ class Vino:
         sumPuntajes = 0
         cantPuntajes = len(puntajes)
         for i in range(cantPuntajes):
-            sumPuntajes += puntajes[i]
+            if puntajes[i] is not None:
+                sumPuntajes += puntajes[i]
         if cantPuntajes != 0:
             promPuntajes = sumPuntajes / cantPuntajes
         else:
             promPuntajes = 0
         return promPuntajes
-
+    
     def getAñada(self, ):
         return self.añada
 

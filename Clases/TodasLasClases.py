@@ -101,7 +101,7 @@ class DTOVino(Base):
     def consultar_vinos(lista_vinos):
         session = Session()
         vinos = session.query(DTOVino).all()
-        lista_bodegas = []  # Define the "lista_bodegas" variable
+        lista_bodegas = []
         bodegas = session.query(DTOBodega).all()
         for b in bodegas:
             idBodega = b.id
@@ -115,15 +115,15 @@ class DTOVino(Base):
             lista_bodegas.append(Bodega(coordenadasUbicacion, descripcion, historia, nombre, periodoActualizacion, regionVitivinicola))
         session.close()
         
-        provincias = session.query(DTOProvincia).all()
-        lista_provincias = []
-        for p in provincias:
-            idProvincia = p.id
-            nombre = p.nombre
-            pais = session.query(DTOPais).filter(DTOPais.id == p.pais).first()
-            pais = Pais(pais.nombre)
-            lista_provincias.append(Provincia(nombre, pais))
-        session.close()
+        # provincias = session.query(DTOProvincia).all()
+        # lista_provincias = []
+        # for p in provincias:
+        #     idProvincia = p.id
+        #     nombre = p.nombre
+        #     pais = session.query(DTOPais).filter(DTOPais.id == p.pais).first()
+        #     pais = Pais(pais.nombre)
+        #     lista_provincias.append(Provincia(nombre, pais))
+        # session.close()
 
         session = Session()
         bodegas = session.query(DTOBodega).all()

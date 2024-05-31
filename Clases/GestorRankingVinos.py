@@ -57,18 +57,20 @@ class GestorRankingVinos:
                 precioDeVino = vino.precioARS
                 bodega, region, pais = vino.buscarInfoBodega()
                 varietales = vino.buscarVarietal()
-                listaVinos = [nombreDeVino, precioDeVino, bodega, region, pais, varietales]
+                listaVinos = [vino, nombreDeVino, precioDeVino, bodega, region, pais, varietales]
                 self.vinosQueCumplenConFiltros.append(listaVinos)        
         self.calcularPuntajeDeSommelierEnPeriodo()
             
-    def calcularPuntajeDeSommelierEnPeriodo(self, ):
-        """for vino in self.vinosQueCumplenConFiltros:
-            vino.append(vino.calcularPuntajeDeSommelierEnPeriodo())"""
+    def calcularPuntajeDeSommelierEnPeriodo(self):
+        for vino in self.vinosQueCumplenConFiltros:
+            puntaje = vino[0].calcularPuntajeDeSommelierEnPeriodo(self.fechaDesde, self.fechaHasta)
+            vino.append(puntaje)
         self.ordenarVinos()
-
+        
     def ordenarVinos(self, ):
         intExcel = InterfazExcel()
-        intExcel.exportarExcel(self.vinosQueCumplenConFiltros)
+        self.vinosOrdenados = sorted(self.vinosQueCumplenConFiltros, key=lambda x: x[-1], reverse=True)
+        intExcel.exportarExcel(self.vinosOrdenados)
 
 
 

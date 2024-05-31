@@ -20,31 +20,25 @@ class Reseña:
         return self.esPremium
 
     def getPuntaje(self, ):
-        pass
+        return self.puntaje
 
-    def getComentario(self, ):
-        pass
+    # def getComentario(self, ):
+    #     pass
 
-    def setComentario(self, value):
-        pass
+    # def setComentario(self, value):
+    #     pass
 
-    def getEsPremium(self, ):
-        pass
+    # def setEsPremium(self, value):
+    #     pass
 
-    def setEsPremium(self, value):
-        pass
+    # def getFechaReseña(self, ):
+    #     pass
 
-    def getFechaReseña(self, ):
-        pass
+    # def setFechaReseña(self, value):
+    #     pass
 
-    def setFechaReseña(self, value):
-        pass
-
-    def getPuntaje(self, ):
-        pass
-
-    def setPuntaje(self, value):
-        pass
+    # def setPuntaje(self, value):
+    #     pass
 
 
 fecha1 = datetime.datetime(2022, 5, 12)

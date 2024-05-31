@@ -33,9 +33,6 @@ class Bodega:
     def setHistoria(self, value):
         pass
 
-    def getNombre(self, ):
-        pass
-
     def setNombre(self, value):
         pass
 
