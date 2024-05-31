@@ -62,8 +62,8 @@ class GestorRankingVinos:
         self.calcularPuntajeDeSommelierEnPeriodo()
             
     def calcularPuntajeDeSommelierEnPeriodo(self, ):
-        for vino in self.vinosQueCumplenConFiltros:
-            vino.append(vino.calcularPuntajeDeSommelierEnPeriodo())
+        """for vino in self.vinosQueCumplenConFiltros:
+            vino.append(vino.calcularPuntajeDeSommelierEnPeriodo())"""
         self.ordenarVinos()
 
     def ordenarVinos(self, ):
