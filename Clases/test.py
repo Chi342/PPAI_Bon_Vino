@@ -1,18 +1,17 @@
-from PantallaRankingVinos import *
 import tkinter as tk
+import sys
+sys.path.append('C:/Users/Roberto/source/repos/robertoutn/PPAI_BON_VINO/')
+from TodasLasClases import *
 from tkinter import PhotoImage, Menu
-from GestorRankingVinos import *
+from PantallaRankingVinos import PantallaRankingVinos
+from GestorRankingVinos import GestorRankingVinos
 from Vino import *
-import random
-import os
-import datetime
-
 
 def test():
     def generar_ranking_vinos():
 
-        gestor = GestorRankingVinos(lista_vinos)
-        pantalla_ranking = PantallaRankingVinos('360x720', 'BonVino - Generar ranking de vinos', 'extras/icono.ico', '#5C1D05', gestor)
+        gestor = GestorRankingVinos(lista_de_vinos)
+        pantalla_ranking = PantallaRankingVinos('360x720', 'BonVino - Generar ranking de vinos', 'Clases/extras/icono.ico', '#5C1D05', gestor)
         gestor.pantalla = pantalla_ranking
         pantalla_ranking.opcGenerarRankingVinos()
 
@@ -38,21 +37,43 @@ def test():
         ventana.config(menu=menu_principal)
 
 
-    lista_vinos = []
-    # lista_vinos = cargar_vinos(lista_vinos)
+    def cargar_vinos(lista_vinos):
+        vinos = DTOVino.consultar_vinos(lista_vinos)  # Assuming there is a static method 'consultar_vinos' in the 'Vino' class
+ #       lista_vinos.extend(vinos)
+        return lista_vinos
 
+
+    # Crear una lista vacía de vinos
+    lista_de_vinos = []
+    
+    # Llamar a la función cargar_vinos con la lista de vinos como argumento
+    lista_de_vinos = cargar_vinos(lista_de_vinos)
+    
+    # Ahora, lista_de_vinos debería contener los vinos cargados por la función
+    print("\nVinos:")
+    for vino in lista_de_vinos:
+        print("Añada:", vino.añada)
+        print("Fecha de actualización:", vino.fechaActualización)
+        print("Imagen de etiqueta:", vino.imagenEtiqueta)
+        print("Nombre:", vino.nombre)
+        print("Nota de cata de bodega:", vino.notaDeCataBodega)
+        print("Precio en ARS:", vino.precioARS)
+        print("Bodega:", vino.bodega)
+        for resenia in vino.reseñas:
+            print("Reseña:", resenia)
+        
+    print("\nCantidad de vinos cargados:", len(lista_de_vinos))
+    
     ventana = tk.Tk()
     ventana.geometry('1280x720')
     ventana.title('BonVino')
-    ventana.iconbitmap('extras/icono.ico')
-    imagen_fondo = PhotoImage(file='extras/BonVINO.png')
+    ventana.iconbitmap('Clases/extras/icono.ico')
+    imagen_fondo = PhotoImage(file='Clases/extras/BonVINO.png')
     etiqueta_fondo = tk.Label(ventana, image=imagen_fondo)
     etiqueta_fondo.place(relwidth=1, relheight=1)
 
-
     crear_menu()
     ventana.mainloop()
-
 
 if __name__ == '__main__':
     test()

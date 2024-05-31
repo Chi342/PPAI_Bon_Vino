@@ -1,25 +1,25 @@
 class Bodega:
-    def __init__(self):
-        self.coordenadasUbicación = None
-        self.descripción = None
-        self.historia = None
-        self.nombre = None
-        self.periodoActualización = None
-        self.region = None
+    def __init__(self, coordenadasUbicación, descripción, historia, nombre, periodoActualización, region    ):
+        self.coordenadasUbicación = coordenadasUbicación
+        self.descripción = descripción
+        self.historia = historia
+        self.nombre = nombre
+        self.periodoActualización = periodoActualización
+        self.region =   region
 
     def getNombre(self, ):
-        pass
+        return self.nombre
 
     def obtenerRegionYPais(self, ):
         region = self.region.getNombre()
         pais = self.region.obtenerPais()
-        return [region, pais]
+        return region, pais
 
     def getCoordenadasUbicación(self, ):
-        pass
+        return self.coordenadasUbicación
 
     def setCoordenadasUbicación(self, value):
-        pass
+        return self.coordenadasUbicación
 
     def getDescripción(self, ):
         pass

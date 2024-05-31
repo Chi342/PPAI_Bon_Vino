@@ -1,8 +1,11 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
+from Reseña import Reseña
+
+
 class Vino:
-    def __init__(self, añada, fechaActualizacion, imagen, nombre, nota, precio, bodega, varietal):
+    def __init__(self, añada, fechaActualizacion, imagen, nombre, nota, precio, bodega, reseñas, varietales):
         self.añada = añada
         self.fechaActualización = fechaActualizacion
         self.imagenEtiqueta = imagen
@@ -10,20 +13,27 @@ class Vino:
         self.notaDeCataBodega = nota
         self.precioARS = precio
         self.bodega = bodega
-        self.reseña = []
-        self.varietal = varietal
+        self.reseñas = reseñas
+        self.varietales = varietales
 
-    def tenesResenasDeTipoEnPeriodo(self, ):
-        for i in range(len(self.reseña)):
-            enPeriodo = self.reseña[i].sosDePeriodo()
-            esDeSommelier = self.reseña[i].sosDeSommelier()
+    def tenesResenasDeTipoEnPeriodo(self,fechaDesde, fechaHasta):
+        vinosQueCumplenConFiltros = []  # Define the variable here
+        for i in range(len(self.reseñas)):
+            enPeriodo = self.reseñas[i].sosDePeriodo(fechaDesde, fechaHasta)
+            sosDeTipo = self.reseñas[i].sosDeSommelier()
+            if enPeriodo and sosDeTipo:
+                vinosQueCumplenConFiltros.append(self.reseñas[i])
+        
+        return vinosQueCumplenConFiltros
 
     def buscarInfoBodega(self, ):
         nombreBodega = self.bodega.getNombre()
-        regionYPais = self.bodega.obtenerRegionYPais()
+        region,pais = self.bodega.obtenerRegionYPais()
+        return nombreBodega, region, pais
 
     def buscarVarietal(self, ):
-        varietal = self.varietal.getDescripción()
+        for i in self.varietales:
+            i.getDescripcion()
 
     def calcularPuntajeDeSommelierEnPeriodo(self, ):
         puntajes = []

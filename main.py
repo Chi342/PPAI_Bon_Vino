@@ -3,11 +3,16 @@ from tkinter import ttk
 from tkinter import messagebox
 from tkcalendar import DateEntry
 
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+from dominio.TodasLasClases import DTOVino
+
 # Configuración de la ventana principal de la aplicación
 ventana = tk.Tk()
 ventana.geometry('600x400')
 ventana.title('BonVino')
-ventana.iconbitmap('Clases/extras/icono.ico')
+ventana.iconbitmap('dominio/extras/icono.ico')
 
 
 def rankear_vinos():

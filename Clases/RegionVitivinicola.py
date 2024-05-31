@@ -2,25 +2,22 @@
 #-*- coding: utf-8 -*-
 
 class RegionVitivinicola:
-    def __init__(self):
-        self.descripción = None
-        self.nombre = None
-        self.provincia = None
+    def __init__(self, descripción, nombre, provincia):
+        self.descripción = descripción
+        self.nombre = nombre
+        self.provincia = provincia
 
     def getNombre(self, ):
-        pass
+        return self.nombre
 
     def obtenerPais(self, ):
         return self.provincia.obtenerPais()
 
     def getDescripción(self, ):
-        pass
+        return self.descripción
 
     def setDescripción(self, value):
-        pass
-
-    def getNombre(self, ):
-        pass
+        self.descripción = value
 
     def setNombre(self, value):
         pass
