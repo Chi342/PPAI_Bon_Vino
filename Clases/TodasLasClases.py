@@ -6,6 +6,7 @@ from Bodega import *
 from Pais import Pais
 from Provincia import Provincia
 from RegionVitivinicola import RegionVitivinicola
+from Varietal import Varietal
 sys.path.append('C:/Users/Roberto/source/repos/robertoutn/PPAI_BON_VINO/')
 import datetime
 import os
@@ -163,8 +164,17 @@ class DTOVino(Base):
                 puntaje = r.puntaje
                 idVino = r.idVino
                 resenia.append(Reseña(comentario, premium, fechaResenia.year, fechaResenia.month, fechaResenia.day, puntaje))
-#                print("Vino: ", idVino, "Reseña: ", idResenia, "Comentario: ", comentario, "Premium: ", premium, "Fecha: ", fechaResenia, "Puntaje: ", puntaje)
             return resenia
+
+        def crear_lista_varietales(i):
+            # Add your implementation here
+            varietales = session.query(DTOVarietal).filter(DTOVarietal.idVino == vinos[i].idVino).all()
+            lista_varietales = []
+            for v in varietales:
+                descripcion = v.descripcion
+                porcentajeComposicion = v.porcentajeComposicion
+                lista_varietales.append(Varietal(descripcion, porcentajeComposicion))
+            return lista_varietales
 
         etiquetas = os.listdir('Clases/extras/etiquetas')
         for i in range(len(vinos)):
@@ -176,6 +186,8 @@ class DTOVino(Base):
             notaDeCataBodega=vinos[i].notaDeCataBodega
             precioARS = vinos[i].precioARS
             resenias = crear_lista_resenias(i)
+            varietales = crear_lista_varietales(i)
+            
             bodega = session.query(DTOBodega).filter(DTOBodega.id == vinos[i].bodega).first()
             
             regionVitivinicola = session.query(DTORegionVitivinicola).filter(DTORegionVitivinicola.id == bodega.regionVitivinicola).first()
@@ -187,7 +199,7 @@ class DTOVino(Base):
             regionVitivinicola = RegionVitivinicola(regionVitivinicola.nombre, regionVitivinicola.descripcion, provincia)
 
             bodega = Bodega(bodega.coordenadasUbicacion, bodega.descripcion, bodega.historia, bodega.nombre, bodega.periodoActualizacion, regionVitivinicola)
-            nuevo_vino = Vino(añada, fechaActualizacion, imagenEtiqueta, nombre, notaDeCataBodega, precioARS, bodega, resenias)
+            nuevo_vino = Vino(añada, fechaActualizacion, imagenEtiqueta, nombre, notaDeCataBodega, precioARS, bodega, resenias, varietales)
             lista_vinos.append(nuevo_vino)
             
         return lista_vinos

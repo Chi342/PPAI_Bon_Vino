@@ -5,7 +5,7 @@ from Reseña import Reseña
 
 
 class Vino:
-    def __init__(self, añada, fechaActualizacion, imagen, nombre, nota, precio, bodega, reseñas):
+    def __init__(self, añada, fechaActualizacion, imagen, nombre, nota, precio, bodega, reseñas, varietales):
         self.añada = añada
         self.fechaActualización = fechaActualizacion
         self.imagenEtiqueta = imagen
@@ -14,7 +14,7 @@ class Vino:
         self.precioARS = precio
         self.bodega = bodega
         self.reseñas = reseñas
-        self.varietales = []
+        self.varietales = varietales
 
     def tenesResenasDeTipoEnPeriodo(self,fechaDesde, fechaHasta):
         vinosQueCumplenConFiltros = []  # Define the variable here
@@ -32,7 +32,8 @@ class Vino:
         return nombreBodega, region, pais
 
     def buscarVarietal(self, ):
-        varietal = self.varietal.getDescripción()
+        for i in self.varietales:
+            i.getDescripcion()
 
     def calcularPuntajeDeSommelierEnPeriodo(self, ):
         puntajes = []
