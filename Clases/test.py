@@ -8,14 +8,22 @@ from GestorRankingVinos import GestorRankingVinos
 from Vino import *
 
 def test():
+    """
+    Función principal que crea una ventana de la aplicación BonVino y configura el menú.
+    """
     def generar_ranking_vinos():
-
+        """
+        Muestra la pantalla.
+        """
         gestor = GestorRankingVinos(lista_de_vinos)
         pantalla_ranking = PantallaRankingVinos('360x720', 'BonVino - Generar ranking de vinos', 'Clases/extras/icono.ico', '#5C1D05', gestor)
         gestor.pantalla = pantalla_ranking
         pantalla_ranking.opcGenerarRankingVinos()
 
     def crear_menu():
+        """
+        Crea el menú principal de la aplicación BonVino con sus respectivos submenús y opciones.
+        """
         menu_principal = Menu(ventana)
 
         submenu_perfil = Menu(menu_principal, tearoff=0)
@@ -36,6 +44,15 @@ def test():
         ventana.config(menu=menu_principal)
     
     def cargar_vinos(lista_vinos):
+        """
+        Carga la lista de vinos desde una fuente de datos externa.
+        
+        Args:
+            lista_vinos (list): La lista de vinos a cargar.
+        
+        Returns:
+            list: La lista de vinos cargada.
+        """
         vinos = DTOVino.consultar_vinos(lista_vinos)
         return lista_vinos
     

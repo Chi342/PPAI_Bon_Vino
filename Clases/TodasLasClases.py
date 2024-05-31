@@ -80,7 +80,6 @@ class DTOVarietal(Base):
 
 #    vino = relationship("Vino", back_populates="varietales")
 
-
 class DTOVino(Base):
     __tablename__ = 'Vino'
     idVino = Column(Integer, primary_key=True, nullable=False)
