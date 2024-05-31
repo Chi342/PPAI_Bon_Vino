@@ -111,16 +111,10 @@ class GestorRankingVinos:
         Método que calcula el puntaje de sommelier para cada vino que cumple con los filtros seleccionados.
         """
         for vino in self.vinosQueCumplenConFiltros:
-            vino.append(vino.calcularPuntajeDeSommelierEnPeriodo())
-
-    def calcularPuntajeDeSommelierEnPeriodo(self):
-        """
-        Método que calcula el puntaje de sommelier para cada vino que cumple con los filtros seleccionados.
-        """
-        for vino in self.vinosQueCumplenConFiltros:
             puntaje = vino[0].calcularPuntajeDeSommelierEnPeriodo(self.fechaDesde, self.fechaHasta)
             vino.append(puntaje)
         self.ordenarVinos()
+        
     def ordenarVinos(self):
         """
         Método que ordena los vinos según su puntaje de sommelier y exporta los resultados a un archivo Excel.
