@@ -1,7 +1,9 @@
 se deben ejecutar los siguientes comandos desde una consola (cmd o powershell): 
+
 pip install flask
 pip install sqlalchemy
 pip install flask-sqlalchemy
 pip install mssql
 python -m pip install tkcalendar
 pip install xlsxwriter
+pip install pyodbc
