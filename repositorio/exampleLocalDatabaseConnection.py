@@ -6,7 +6,7 @@ DATABASE_URI = (
     'mssql+pyodbc:///?odbc_connect='
     'DRIVER={ODBC Driver 17 for SQL Server};'
     'SERVER=MAIN;'
-    'DATABASE=Bon_vino;'
+    'DATABASE=DBM;'
     'Trusted_Connection=yes;'
 )
 engine = create_engine(DATABASE_URI)
