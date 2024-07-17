@@ -4,11 +4,16 @@ import os
 import os
 
 # Define the connection string
-username = os.environ.get("DB_USERNAME_BON_VINO")
-password = os.environ.get("DB_PASSWORD_BON_VINO")
-server = os.environ.get("DB_SERVER_BON_VINO")
+username = os.environ.get("DB_USERNAME_AIRCON")
+password = os.environ.get("DB_PASSWORD_AIRCON")
+server = os.environ.get("DB_SERVER_NAME_AIRCON")
 database = "Bon_vino"
 driver = "ODBC+Driver+17+for+SQL+Server"
+
+# Show the environment variables
+print("DB_USERNAME_AIRCON:", username)
+print("DB_PASSWORD_AIRCON:", password)
+print("DB_SERVER_NAME_AIRCON:", server)
 
 # Check if the required environment variables are set
 if not username or not password or not server:
@@ -21,7 +26,7 @@ connection_string = f"mssql+pyodbc://{username}:{password}@{server}/{database}?d
 engine = create_engine(connection_string)
 Session = sessionmaker(bind=engine)
 
-# Check the connection
+""" # Check the connection
 try:
     engine.connect()
     print("Connection successful!")
@@ -33,4 +38,4 @@ try:
         print("First record from 'bodega' table:", record)
 
 except Exception as e:
-    print("Connection failed:", str(e))
+    print("Connection failed:", str(e)) """

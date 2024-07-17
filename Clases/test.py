@@ -20,7 +20,7 @@ def generar_ranking_vinos():
     pantalla_ranking.opcGenerarRankingVinos()
     return render_template('ranking.html')
 
-@app.route('/importar_vinos', methods=['POST'])
+@app.route('/importar_vinos', methods=['GET'])
 def importar_vinos():
     global lista_de_vinos
     lista_de_vinos = cargar_vinos(lista_de_vinos)
