@@ -22,7 +22,8 @@ def generar_ranking_vinos():
 
 @app.route('/importar_vinos', methods=['POST'])
 def importar_vinos():
-    # Handle import logic here
+    global lista_de_vinos
+    lista_de_vinos = cargar_vinos(lista_de_vinos)
     return 'Import successful'
 
 def cargar_vinos(lista_vinos):

@@ -21,7 +21,7 @@ connection_string = f"mssql+pyodbc://{username}:{password}@{server}/{database}?d
 engine = create_engine(connection_string)
 Session = sessionmaker(bind=engine)
 
-""" # Check the connection
+# Check the connection
 try:
     engine.connect()
     print("Connection successful!")
@@ -33,4 +33,4 @@ try:
         print("First record from 'bodega' table:", record)
 
 except Exception as e:
-    print("Connection failed:", str(e)) """
+    print("Connection failed:", str(e))
