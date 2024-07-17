@@ -4,9 +4,53 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Ranking de Vinos</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
 </head>
 <body>
-	<h1>Ranking de Vinos</h1>
-	<!-- Add your content here -->
+	<header>
+		<h1>Ranking de Vinos</h1>
+	</header>
+	<form id="formularioRankingVinos" action="/generar_ranking" method="post">
+		<section>
+			<h2>Seleccione el Rango de Fechas</h2>
+			<label for="fechaInicio">Fecha de inicio:</label>
+			<input type="date" id="fechaInicio" name="fechaInicio" required>
+			<label for="fechaFin">Fecha de fin:</label>
+			<input type="date" id="fechaFin" name="fechaFin" required>
+		</section>
+		<section>
+			<h2>Tipo de Reseña</h2>
+			<input type="radio" id="tipoResenaNormal" name="tipoResena" value="normal">
+			<label for="tipoResenaNormal">Normal</label>
+			<input type="radio" id="tipoResenaSommelier" name="tipoResena" value="sommelier">
+			<label for="tipoResenaSommelier">Sommelier</label>
+			<input type="radio" id="tipoResenaAmigo" name="tipoResena" value="amigo">
+			<label for="tipoResenaAmigo">Amigo</label>
+		</section>
+		<section>
+			<h2>Tipo de Visualización</h2>
+			<input type="radio" id="visualizacionPDF" name="tipoVisualizacion" value="pdf">
+			<label for="visualizacionPDF">PDF</label>
+			<input type="radio" id="visualizacionExcel" name="tipoVisualizacion" value="excel">
+			<label for="visualizacionExcel">Excel</label>
+			<input type="radio" id="visualizacionPantalla" name="tipoVisualizacion" value="pantalla" checked>
+			<label for="visualizacionPantalla">Pantalla</label>
+		</section>
+		<section>
+			<button type="submit">Generar Reporte</button>
+		</section>
+	</form>
+
+	<!-- Agregar al final del <body> -->
+	<div id="modalConfirmacion" class="modal">
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<p>¿Estás seguro de que quieres generar el reporte?</p>
+		<button id="cancelar">Cancelar</button>
+		<button id="confirmar">Confirmar</button>
+	</div>
+	</div>
+	<script src="{{ url_for('static', filename='js/ranking.js') }}"></script>
 </body>
+
 </html>

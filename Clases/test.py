@@ -17,8 +17,8 @@ def generar_ranking_vinos():
     gestor = GestorRankingVinos(lista_de_vinos)
     pantalla_ranking = PantallaRankingVinos('360x720', 'BonVino - Generar ranking de vinos', 'Clases/extras/icono.ico', '#5C1D05', gestor)
     gestor.pantalla = pantalla_ranking
-    pantalla_ranking.opcGenerarRankingVinos()
-    return 'Ranking generated'
+    datos_ranking = pantalla_ranking.opcGenerarRankingVinos()  # Asumiendo que esto devuelve los datos necesarios para el ranking
+    return render_template('ranking.html', ranking=datos_ranking)
 
 @app.route('/importar_vinos', methods=['GET', 'POST'])
 def importar_vinos():
@@ -34,3 +34,5 @@ lista_de_vinos = []
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
+    
