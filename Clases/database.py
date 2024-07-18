@@ -4,9 +4,9 @@ import os
 import os
 
 # Define the connection string
-username = os.environ.get("DB_USERNAME_BON_VINO")
-password = os.environ.get("DB_PASSWORD_BON_VINO")
-server = os.environ.get("DB_SERVER_BON_VINO")
+username = os.environ.get("DB_USERNAME_AIRCON")
+password = os.environ.get("DB_PASSWORD_AIRCON")
+server = os.environ.get("DB_SERVER_NAME_AIRCON")
 database = "Bon_vino"
 driver = "ODBC+Driver+17+for+SQL+Server"
 

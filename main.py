@@ -1,13 +1,13 @@
 import tkinter as tk
-import sys
-sys.path.append('C:/Users/Roberto/source/repos/robertoutn/PPAI_BON_VINO/')
-from TodasLasClases import *
-from tkinter import PhotoImage, Menu
-from PantallaRankingVinos import PantallaRankingVinos
-from GestorRankingVinos import GestorRankingVinos
-from Vino import *
+# import sys
 
-def test():
+# sys.path.append('C:/Users/Roberto/source/repos/robertoutn/PPAI_BON_VINO/')
+from tkinter import PhotoImage, Menu
+from Clases.TodasLasClases import DTOVino
+from Clases.PantallaRankingVinos import PantallaRankingVinos
+from Clases.GestorRankingVinos import GestorRankingVinos
+
+def main():
     """
     Función principal que crea una ventana de la aplicación BonVino y configura el menú.
     """
@@ -71,4 +71,4 @@ def test():
     ventana.mainloop()
 
 if __name__ == '__main__':
-    test()
+    main()

@@ -1,7 +1,6 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
-from Reseña import Reseña
-
+from Clases.Reseña import Reseña
 class Vino:
     def __init__(self, añada, fechaActualizacion, imagen, nombre, nota, precio, bodega, reseñas, varietales):
         """

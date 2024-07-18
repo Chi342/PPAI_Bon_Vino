@@ -1,13 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import sys
+sys.path.append('C:/Users/Roberto/source/repos/robertoutn/PPAI_BON_VINO/Clases')
 
-from Bodega import *
+from Bodega import Bodega
 from Pais import Pais
 from Provincia import Provincia
 from RegionVitivinicola import RegionVitivinicola
 from Varietal import Varietal
-sys.path.append('C:/Users/Roberto/source/repos/robertoutn/PPAI_BON_VINO/')
 import datetime
 import os
 import random
