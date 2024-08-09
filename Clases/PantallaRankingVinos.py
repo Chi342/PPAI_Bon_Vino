@@ -1,7 +1,7 @@
-import tkinter as tk
 from tkcalendar import DateEntry
 from GestorRankingVinos import *
-
+from PIL import Image, ImageTk
+import tkinter as tk
 class PantallaRankingVinos:
     def __init__(self, resolucion, nombre, icono, color, gestor):
         """
@@ -42,13 +42,14 @@ class PantallaRankingVinos:
         self.ventana_ranking.title(self.__nombre)
         # self.ventana_ranking.iconbitmap(self.__icono)
         
-        # Use wm_iconphoto for PNG icon
+       # Use Pillow to handle the icon image
         try:
-            icono = tk.PhotoImage(file=self.__icono)
-            self.ventana_ranking.wm_iconphoto(True, icono)
-        except tk.TclError as e:
-            print(f"Error setting icon: {e}")
-
+            image = Image.open(self.__icono)
+            self.icono = ImageTk.PhotoImage(image)  # Keep a reference to the image
+            self.ventana_ranking.wm_iconphoto(True, self.icono)
+        except Exception as e:
+            print(f"Error setting icon PantallaRankingVinos: {e}")
+        
         self.ventana_ranking.config(bg=self.__color)
 
         self.gestor.opcGenerarRankingVinos()

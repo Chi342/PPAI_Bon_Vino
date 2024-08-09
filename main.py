@@ -1,5 +1,6 @@
-import os
+from PIL import Image, ImageTk
 import tkinter as tk
+import os
 from tkinter import PhotoImage, Menu
 from Clases.TodasLasClases import DTOVino
 from Clases.PantallaRankingVinos import PantallaRankingVinos
@@ -16,7 +17,7 @@ def main():
         Muestra la pantalla.
         """
         gestor = GestorRankingVinos(lista_de_vinos)
-        pantalla_ranking = PantallaRankingVinos('360x720', 'BonVino - Generar ranking de vinos', '/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/icono.png', '#5C1D05', gestor)
+        pantalla_ranking = PantallaRankingVinos('360x720', 'BonVino - Generar ranking de vinos', '/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/icono.gif', '#5C1D05', gestor)
         gestor.pantalla = pantalla_ranking
         pantalla_ranking.opcGenerarRankingVinos()
 
@@ -64,10 +65,12 @@ def main():
     ventana.title('BonVino')
     
     #ventana.iconbitmap('/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/icono.ico')
-    icono = PhotoImage(file='/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/icono.png')
-    ventana.wm_iconphoto(True, icono)
+    image = Image.open('/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/icono.ico')
+    icono = ImageTk.PhotoImage(image)
+    #ventana.wm_iconphoto(True, icono)
+    ventana.iconphoto(True, icono)
     
-    imagen_fondo = PhotoImage(file='/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/BonVINO.png')
+    imagen_fondo = ImageTk.PhotoImage(file='/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/BonVINO.gif')
     etiqueta_fondo = tk.Label(ventana, image=imagen_fondo)
     etiqueta_fondo.place(relwidth=1, relheight=1)
 
