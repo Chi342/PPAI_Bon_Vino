@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import sys
-sys.path.append('C:/Users/Roberto/source/repos/robertoutn/PPAI_BON_VINO/Clases')
+sys.path.append('/mnt/linux/repositories/PPAI_BON_VINO/Clases')
 
 from Bodega import Bodega
 from Pais import Pais
@@ -165,7 +165,7 @@ class DTOVino(Base):
                 lista_varietales.append(Varietal(descripcion, porcentajeComposicion))
             return lista_varietales
 
-        etiquetas = os.listdir('Clases/extras/etiquetas')
+        etiquetas = os.listdir('/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/etiquetas')
         for i in range(len(vinos)):
             idVino = i
             añada = vinos[i].aniada

@@ -1,9 +1,14 @@
 se deben ejecutar los siguientes comandos desde una consola (cmd o powershell): 
+sudo apt-get update
+pip install pyodbc
+sudo apt-get install unixodbc
+pip install tkcalendar
+pip install xlsxwriter
+sudo apt update
+sudo apt install curl
 
 pip install flask
 pip install sqlalchemy
 pip install flask-sqlalchemy
 pip install mssql
-python -m pip install tkcalendar
-pip install xlsxwriter
-pip install pyodbc
+

@@ -40,7 +40,15 @@ class PantallaRankingVinos:
         self.ventana_ranking = tk.Tk()
         self.ventana_ranking.geometry(self.__resolucion)
         self.ventana_ranking.title(self.__nombre)
-        self.ventana_ranking.iconbitmap(self.__icono)
+        # self.ventana_ranking.iconbitmap(self.__icono)
+        
+        # Use wm_iconphoto for PNG icon
+        try:
+            icono = tk.PhotoImage(file=self.__icono)
+            self.ventana_ranking.wm_iconphoto(True, icono)
+        except tk.TclError as e:
+            print(f"Error setting icon: {e}")
+
         self.ventana_ranking.config(bg=self.__color)
 
         self.gestor.opcGenerarRankingVinos()
