@@ -1,3 +1,4 @@
+import os
 from tkcalendar import DateEntry
 from GestorRankingVinos import *
 from PIL import Image, ImageTk
@@ -43,12 +44,12 @@ class PantallaRankingVinos:
         # self.ventana_ranking.iconbitmap(self.__icono)
         
        # Use Pillow to handle the icon image
-        try:
-            image = Image.open(self.__icono)
-            self.icono = ImageTk.PhotoImage(image)  # Keep a reference to the image
-            self.ventana_ranking.wm_iconphoto(True, self.icono)
-        except Exception as e:
-            print(f"Error setting icon PantallaRankingVinos: {e}")
+        # try:
+        image = Image.open(self.__icono)
+        self.icono = ImageTk.PhotoImage(image)  # Keep a reference to the image
+        self.ventana_ranking.wm_iconphoto(True, self.icono)
+        # except Exception as e:
+        #     print(f"Error setting icon PantallaRankingVinos: {e}")
         
         self.ventana_ranking.config(bg=self.__color)
 

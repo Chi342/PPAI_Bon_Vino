@@ -17,7 +17,7 @@ def main():
         Muestra la pantalla.
         """
         gestor = GestorRankingVinos(lista_de_vinos)
-        pantalla_ranking = PantallaRankingVinos('', 'BonVino - Generar ranking de vinos', '/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/BonVINO.gif', '#5C1D05', gestor)
+        pantalla_ranking = PantallaRankingVinos('360x720', 'BonVino - Generar ranking de vinos', '/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/BonVINO.gif', '#5C1D05', gestor)
         gestor.pantalla = pantalla_ranking
         pantalla_ranking.opcGenerarRankingVinos()
 
