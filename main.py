@@ -17,7 +17,7 @@ def main():
         Muestra la pantalla.
         """
         gestor = GestorRankingVinos(lista_de_vinos)
-        pantalla_ranking = PantallaRankingVinos('360x720', 'BonVino - Generar ranking de vinos', '/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/icono.gif', '#5C1D05', gestor)
+        pantalla_ranking = PantallaRankingVinos('', 'BonVino - Generar ranking de vinos', '/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/BonVINO.gif', '#5C1D05', gestor)
         gestor.pantalla = pantalla_ranking
         pantalla_ranking.opcGenerarRankingVinos()
 
@@ -65,7 +65,7 @@ def main():
     ventana.title('BonVino')
     
     #ventana.iconbitmap('/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/icono.ico')
-    image = Image.open('/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/icono.ico')
+    image = Image.open('/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/BonVINO.gif')
     icono = ImageTk.PhotoImage(image)
     #ventana.wm_iconphoto(True, icono)
     ventana.iconphoto(True, icono)
