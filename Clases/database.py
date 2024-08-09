@@ -1,12 +1,22 @@
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
-import os
+from dotenv import load_dotenv
 import os
 
+load_dotenv()  # Load environment variables from .env file
+
 # Define the connection string
-username = os.environ.get("DB_USERNAME_AIRCON")
-password = os.environ.get("DB_PASSWORD_AIRCON")
-server = os.environ.get("DB_SERVER_NAME_AIRCON")
+username = os.getenv("DB_USERNAME_AIRCON")
+password = os.getenv("DB_PASSWORD_AIRCON")
+server = os.getenv("DB_SERVER_NAME_AIRCON")
+
+
+if not password or not username or not server:
+    raise ValueError("Missing required environment variables")
+
+    # Print the value
+    print(f"DB_USERNAME_AIRCON:{username}, DB_PASSWORD_AIRCON: {password}, DB_SERVER_NAME_AIRCON: {server}")
+
 database = "Bon_vino"
 driver = "ODBC+Driver+17+for+SQL+Server"
 

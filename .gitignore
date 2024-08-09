@@ -1,0 +1,39 @@
+# Archivos y directorios generados por el entorno de desarrollo
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Directorio virtualenv
+venv/
+
+# Archivos de configuración local
+.env
+
+# Archivos de registro
+*.log
+
+# Directorio de dependencias
+lib/
+
+# Directorio de resultados de pruebas
+test_results/
+
+# Archivos de configuración de IDE
+.idea/
+.vscode/
+
+# Archivos de compilación
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de caché
+*.cache/
+
+# Archivos de respaldo
+*~
+
+# Archivos de configuración de sistema
+.DS_Store
+Thumbs.db
