@@ -6,8 +6,13 @@ from Clases.TodasLasClases import DTOVino
 from Clases.PantallaRankingVinos import PantallaRankingVinos
 from Clases.GestorRankingVinos import GestorRankingVinos
 import sys
-sys.path.append('/mnt/linux/repositories/PPAI_BON_VINO')
+#para desktop casa           E:\repositories\PPAI_BON_VINO
+default_path = os.path.join('E:', 'repositories', 'PPAI_BON_VINO')
+#para notebook ubuntu       /mnt/linux/repositories/PPAI_BON_VINO/
 
+if default_path not in sys.path:
+    sys.path.append(default_path)
+    
 def main():
     """
     Función principal que crea una ventana de la aplicación BonVino y configura el menú.
@@ -17,7 +22,7 @@ def main():
         Muestra la pantalla.
         """
         gestor = GestorRankingVinos(lista_de_vinos)
-        pantalla_ranking = PantallaRankingVinos('360x720', 'BonVino - Generar ranking de vinos', '/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/BonVINO.gif', '#5C1D05', gestor)
+        pantalla_ranking = PantallaRankingVinos('360x720', 'BonVino - Generar ranking de vinos', 'Clases/extras/BonVINO.gif', '#5C1D05', gestor)
         gestor.pantalla = pantalla_ranking
         pantalla_ranking.opcGenerarRankingVinos()
 
@@ -65,12 +70,12 @@ def main():
     ventana.title('BonVino')
     
     #ventana.iconbitmap('/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/icono.ico')
-    image = Image.open('/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/BonVINO.gif')
+    image = Image.open('Clases/extras/BonVINO.gif')
     icono = ImageTk.PhotoImage(image)
     #ventana.wm_iconphoto(True, icono)
     ventana.iconphoto(True, icono)
     
-    imagen_fondo = ImageTk.PhotoImage(file='/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/BonVINO.gif')
+    imagen_fondo = ImageTk.PhotoImage(file='Clases/extras/BonVINO.gif')
     etiqueta_fondo = tk.Label(ventana, image=imagen_fondo)
     etiqueta_fondo.place(relwidth=1, relheight=1)
 

@@ -1,7 +1,7 @@
-from PantallaRankingVinos import *
+from Clases.PantallaRankingVinos import *
 from tkinter import *
-from Vino import *
-from InterfazExcel import InterfazExcel
+from Clases.Vino import *
+from Clases.InterfazExcel import InterfazExcel
 
 
 class GestorRankingVinos:

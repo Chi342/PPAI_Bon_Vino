@@ -1,13 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import sys
-sys.path.append('/mnt/linux/repositories/PPAI_BON_VINO/Clases')
+# sys.path.append('/mnt/linux/repositories/PPAI_BON_VINO/Clases')
 
-from Bodega import Bodega
-from Pais import Pais
-from Provincia import Provincia
-from RegionVitivinicola import RegionVitivinicola
-from Varietal import Varietal
+from Clases.Bodega import Bodega
+from Clases.Pais import Pais
+from Clases.Provincia import Provincia
+from Clases.RegionVitivinicola import RegionVitivinicola
+from Clases.Varietal import Varietal
 import datetime
 import os
 import random
@@ -15,9 +15,9 @@ from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, D
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import relationship
-from Vino import Vino
-from database import Session
-from Reseña import Reseña
+from Clases.Vino import Vino
+from Clases.database import Session
+from Clases.Reseña import Reseña
 
 Base = declarative_base()
 
@@ -165,7 +165,7 @@ class DTOVino(Base):
                 lista_varietales.append(Varietal(descripcion, porcentajeComposicion))
             return lista_varietales
 
-        etiquetas = os.listdir('/mnt/linux/repositories/PPAI_BON_VINO/Clases/extras/etiquetas')
+        etiquetas = os.listdir('Clases/extras/etiquetas')
         for i in range(len(vinos)):
             idVino = i
             añada = vinos[i].aniada
