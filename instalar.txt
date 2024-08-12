@@ -1,4 +1,6 @@
-se deben ejecutar los siguientes comandos desde una consola (cmd o powershell): 
+se deben ejecutar los siguientes comandos desde una consola: 
+
+ubuntu:
 sudo apt-get update
 pip install pyodbc
 sudo apt-get install unixodbc
@@ -7,8 +9,13 @@ pip install xlsxwriter
 sudo apt update
 sudo apt install curl
 
-pip install flask
+
+windows:
+instalar python
+pip install Pillow
 pip install sqlalchemy
-pip install flask-sqlalchemy
-pip install mssql
+pip install python-dotenv 
+pip install pyodbc
+pip install tkcalendar
+pip install xlsxwriter
 
