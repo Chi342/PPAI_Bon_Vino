@@ -6,9 +6,9 @@ import os
 load_dotenv()  # Load environment variables from .env file
 
 # Define the connection string
+server = os.getenv("DB_SERVER_NAME_AIRCON")
 username = os.getenv("DB_USERNAME_AIRCON")
 password = os.getenv("DB_PASSWORD_AIRCON")
-server = os.getenv("DB_SERVER_NAME_AIRCON")
 
 
 if not password or not username or not server:

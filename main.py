@@ -6,9 +6,10 @@ from Clases.TodasLasClases import DTOVino
 from Clases.PantallaRankingVinos import PantallaRankingVinos
 from Clases.GestorRankingVinos import GestorRankingVinos
 import sys
-#para desktop casa           E:\repositories\PPAI_BON_VINO
-default_path = os.path.join('E:', 'repositories', 'PPAI_BON_VINO')
-#para notebook ubuntu       /mnt/linux/repositories/PPAI_BON_VINO/
+#para windows casa           E:\repositories\PPAI_BON_VINO
+# default_path = os.path.join('E:', 'repositories', 'PPAI_BON_VINO')
+#para ubuntu  casa     /mnt/linux/repositories/PPAI_BON_VINO/
+default_path = os.path.join('/mnt', 'linux', 'repositories', 'PPAI_BON_VINO')
 
 if default_path not in sys.path:
     sys.path.append(default_path)

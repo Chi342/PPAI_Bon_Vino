@@ -2,12 +2,29 @@ se deben ejecutar los siguientes comandos desde una consola:
 
 ubuntu:
 sudo apt-get update
+sudo apt install python3.12-venv
+python3 -m venv venv
+source venv/bin/activate
+pip install Pillow
+sudo apt install python3-tk
+pip install sqlalchemy
+pip install python-dotenv
+crear el archivo .env con las siguientes lineas:
+    DB_SERVER_NAME_AIRCON=
+    DB_USERNAME_AIRCON=
+    DB_PASSWORD_AIRCON=
 pip install pyodbc
 sudo apt-get install unixodbc
 pip install tkcalendar
 pip install xlsxwriter
 sudo apt update
 sudo apt install curl
+sudo su
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
+echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/microsoft.gpg] https://packages.microsoft.com/ubuntu/20.04/prod focal main" | sudo tee /etc/apt/sources.list.d/msprod.list
+sudo apt-get update
+sudo apt-get install -y msodbcsql17
+sudo apt update
 
 
 windows:
