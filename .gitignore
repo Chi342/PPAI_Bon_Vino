@@ -1,3 +1,6 @@
+# archivos generados por la aplicación
+RankingVinos.xlsx
+
 # Archivos y directorios generados por el entorno de desarrollo
 __pycache__/
 *.pyc
