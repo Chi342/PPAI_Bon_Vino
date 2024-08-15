@@ -36,3 +36,6 @@ pip install pyodbc
 pip install tkcalendar
 pip install xlsxwriter
 
+react:
+sudo apt update
+sudo apt install nodejs npm -y
